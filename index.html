@@ -9,12 +9,37 @@
   </head>
   <body>
     <h1 class="titulo"> Ficha de Registro del Programa AXIOS (Misión Mujer A.C.) </h1>
+    
+    <h2>Datos Generales del Alumno</h2>
     <form id="frm1" action="/action_page.php">
         Nombre de la escuela: <input name="escuela" type="text"/> <br/>
         Grado: <input name="grado" type="text"/> <br/>
         Grupo: <input name="grupo" type="text"/> <br/>
         Turno: <input name="turno" type="text"/> <br/>
-    </form> 
+        Apellido Paterno: <input name="aPaterno" type="text"/> <br/>
+        Apellido Materno: <input name="aMaterno" type="text"/> <br/>
+        Nombres: <input name="nombres" type="text"/> <br/>
+        Edad: <input name="edad" type="text"/> <br/>
+        Lugar de Nacimiento: <input name="lugarNacimiento" type="text"/> <br/>
+    </form>
+
+    <h2>Redes Sociales</h2>
+    <form id="frm2">
+      Facebook: <input name="facebook" type="text"/> <br/>
+      Instagram: <input name="instagram" type="text"/> <br/>
+      Correo Electrónico: <input name="correo" type="text"/> <br/>
+    </form>
+
+    <h2>Domicilio</h2>
+    <form id="frm3">
+      Calle: <input name="calle" type="text"/> <br/>
+      Número: <input name="numCasa" type="text"/> <br/>
+      Colonia: <input name="colonia" type="text"/> <br/>
+      Municipio: <input name="municipio" type="text"/> <br/>
+      Teléfono de casa: <input name="telefono" type="text"/> <br/>
+      Celular: <input name="celular" type="text"/> <br/>
+    </form>
+    
     <input onclick="sendAnswers(); return true" value="Enviar respuestas">
   </body>
 </html>
