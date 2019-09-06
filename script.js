@@ -36,18 +36,33 @@ function download(data, filename, type) {
         }, 0); 
     }
 }
+function checkAnswers(){
+
+}
 
 function sendAnswers(){
     var x = document.getElementById("frm1");
     for (i = 0; i < x.length ;i++) {
+        if(x.elements[i].className=='required' && x.elements[i].value===''){
+            alert("Completa el campo "+x.elements[i].name);
+            return;
+        }
         data[x.elements[i].name] += x.elements[i].value;
     }
     var y = document.getElementById("frm2");
     for (i = 0; i < y.length ;i++) {
+        if(x.elements[i].className=='required' && x.elements[i].value===''){
+            alert("Completa el campo "+x.elements[i].name);
+            return;
+        }
         data[y.elements[i].name] += y.elements[i].value;
     }
     var z = document.getElementById("frm3");
     for (i = 0; i < z.length ;i++) {
+        if(x.elements[i].className=='required' && x.elements[i].value===''){
+            alert("Completa el campo "+x.elements[i].name);
+            return;
+        }
         data[z.elements[i].name] += z.elements[i].value;
     }
     const keys = Object.keys(data);

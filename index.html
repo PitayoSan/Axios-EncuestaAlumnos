@@ -18,91 +18,104 @@
       
       <h2>Datos Generales del Alumno</h2>
       <form id="frm1" action="/action_page.php">
-          Nombre de la escuela: <input name="escuela" type="text"/> <br/>
-          Grado: <input name="grado" type="text"/> <br/>
-          Grupo: <input name="grupo" type="text"/> <br/>
-          Turno: <input name="turno" type="text"/> <br/>
+        <p>
+         Nombre de la escuela:
+          <input class="required" name="escuela" type="text"/> <br/>
+          Grado: 
+          <input class="required" name="grado" type="number" min="1" max="3" step="1" value="1" /> <br/>
+          Grupo: <input class="required" name="grupo" type="text"/> <br/>
+          Turno: <input class="required" name="turno" type="text"/> <br/>
   
           <h3>Nombre del alumno</h3>
-          Apellido Paterno: <input name="aPaterno" type="text"/> <br/>
-          Apellido Materno: <input name="aMaterno" type="text"/> <br/>
-          Nombres: <input name="nombres" type="text"/> <br/>
-          Edad: <input name="edad" type="text"/> <br/>
-          Lugar de Nacimiento: <input name="lugarNacimiento" type="text"/> <br/>
+          Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
+          Apellido Materno: <input class="required" name="aMaterno" type="text"/> <br/>
+          Nombres: <input class="required" name="nombres" type="text"/> <br/>
+          Edad: <input class="required" name="edad" type="text"/> <br/>
+          Lugar de Nacimiento: <input class="required" name="lugarNacimiento" type="text"/> <br/>
+        </p>
       </form>
   
       <h2>Redes Sociales</h2>
       <form id="frm2">
-        Facebook: <input name="facebook" type="text"/> <br/>
-        Instagram: <input name="instagram" type="text"/> <br/>
-        Correo Electrónico: <input name="correo" type="text"/> <br/>
+        <p>
+          Facebook: <input name="facebook" type="text"/> <br/>
+          Instagram: <input name="instagram" type="text"/> <br/>
+          Correo Electrónico: <input name="correo" type="text"/> <br/>
+        </p>
       </form>
   
       <h2>Domicilio</h2>
       <form id="frm3">
-        Calle: <input name="calle" type="text"/> <br/>
-        Número: <input name="numCasa" type="text"/> <br/>
-        Colonia: <input name="colonia" type="text"/> <br/>
-        Municipio: <input name="municipio" type="text"/> <br/>
-        Teléfono de casa: <input name="telefono" type="text"/> <br/>
-        Celular: <input name="celular" type="text"/> <br/>
+        <p>
+          Calle: <input class="required" name="calle" type="text"/> <br/>
+          Número: <input class="required" name="numCasa" type="text"/> <br/>
+          Colonia: <input class="required" name="colonia" type="text"/> <br/>
+          Municipio: <input class="required" name="municipio" type="text"/> <br/>
+          Teléfono de casa:
+          <input class="required" name="telefono" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
+          Celular:
+          <input class="required" name="celular" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
+        </p>
       </form>
   
       <h2>Datos de Padre, Madre o Tutor</h2>
       <h3>(En caso de ser Tutor, agregar el parentesco)</h3>
       <form id="frm4">
-        <h3>Nombre completo del Padre</h3>
-        Apellido Paterno: <input name="aPaternoPadre" type="text"/> <br/>
-        Apellido Materno: <input name="aMaternoPadre" type="text"/> <br/>
-        Nombres: <input name="nombresPadre" type="text"/> <br/>
-        Edad: <input name="edadPadre" type="text"/> <br/>
-        Ocupación: <input name="ocupacionPadre" type="text"/> <br/>
-        Hasta qué grado estudió: <input name="gradoPadre" type="text"/> <br/>
-        Teléfono de contacto: <input name="telefonoPadre" type="text"/> <br/>
-      
-        <h3>Nombre completo de la Madre</h3>
-        Apellido Paterno: <input name="aPaternoMadre" type="text"/> <br/>
-        Apellido Materno: <input name="aMaternoMadre" type="text"/> <br/>
-        Nombres: <input name="nombresMadre" type="text"/> <br/>
-        Edad: <input name="edadMadre" type="text"/> <br/>
-        Ocupación: <input name="ocupacionMadre" type="text"/> <br/>
-        Hasta qué grado estudió: <input name="gradoMadre" type="text"/> <br/>
-        Teléfono de contacto: <input name="telefonoMadre" type="text"/> <br/>
+        <p>
+            <h3>Nombre completo del Padre</h3>
+            Apellido Paterno: <input name="aPaternoPadre" type="text"/> <br/>
+            Apellido Materno: <input name="aMaternoPadre" type="text"/> <br/>
+            Nombres: <input name="nombresPadre" type="text"/> <br/>
+            Edad: <input name="edadPadre" type="text"/> <br/>
+            Ocupación: <input name="ocupacionPadre" type="text"/> <br/>
+            Hasta qué grado estudió: <input name="gradoPadre" type="text"/> <br/>
+            Teléfono de contacto: <input name="telefonoPadre" type="text"/> <br/>
+          
+            <h3>Nombre completo de la Madre</h3>
+            Apellido Paterno: <input name="aPaternoMadre" type="text"/> <br/>
+            Apellido Materno: <input name="aMaternoMadre" type="text"/> <br/>
+            Nombres: <input name="nombresMadre" type="text"/> <br/>
+            Edad: <input name="edadMadre" type="text"/> <br/>
+            Ocupación: <input name="ocupacionMadre" type="text"/> <br/>
+            Hasta qué grado estudió: <input name="gradoMadre" type="text"/> <br/>
+            Teléfono de contacto: <input name="telefonoMadre" type="text"/> <br/>
+        </p>
       </form>
   
       <h2>Datos de Familia</h2>
       <form id="frm5">
-        <h3>Estado Civil de tus padres:</h3>
-        <input name="estadoCivil" value="casados" type="radio">Casados<br>
-        <input name="estadoCivil" value="divorciados" type="radio">Divorciados<br>
-        <input name="estadoCivil" value="separados" type="radio">Separados<br>
-        <input name="estadoCivil" value="unionLibre" type="radio">Unión libre<br>
-        <input name="estadoCivil" value="viudoa" type="radio">Viudo (a)<br>
-        <input name="estadoCivil" value="volvioAJuntar" type="radio">Se volvió a juntar<br>
-        <input name="estadoCivil" value="volvioACasar" type="radio">Se volvió a casar<br>
-  
-        <h3>¿Con quién vives?</h3>
-        <input name="vivienda" value="papa" type="radio">Papá<br>
-        <input name="vivienda" value="mama" type="radio">Mamá<br>
-        <input name="vivienda" value="hermanoa" type="radio">Hermano (a)<br>
-        <input name="vivienda" value="abueloa" type="radio">Abuelo (a)<br>
-        <input name="vivienda" value="tioa" type="radio">Tío (a)<br>
-        <input name="vivienda" value="primoa" type="radio">Primo (a)<br>
-        <input name="vivienda" value="sobrinoa" type="radio">Sobrino (a)<br>    
-        <input name="vivienda" value="tutora" type="radio">Tutor (a)<br>
-        <input name="vivienda" value="" type="radio">Otros (a)<input type="text" name="otros" />
+        <p>
+            <h3>Estado Civil de tus padres:</h3>
+            <input name="estadoCivil" value="casados" type="radio">Casados<br>
+            <input name="estadoCivil" value="divorciados" type="radio">Divorciados<br>
+            <input name="estadoCivil" value="separados" type="radio">Separados<br>
+            <input name="estadoCivil" value="unionLibre" type="radio">Unión libre<br>
+            <input name="estadoCivil" value="viudoa" type="radio">Viudo (a)<br>
+            <input name="estadoCivil" value="volvioAJuntar" type="radio">Se volvió a juntar<br>
+            <input name="estadoCivil" value="volvioACasar" type="radio">Se volvió a casar<br>
+      
+            <h3>¿Con quién vives?</h3>
+            <input name="vivienda" value="papa" type="radio">Papá<br>
+            <input name="vivienda" value="mama" type="radio">Mamá<br>
+            <input name="vivienda" value="hermanoa" type="radio">Hermano (a)<br>
+            <input name="vivienda" value="abueloa" type="radio">Abuelo (a)<br>
+            <input name="vivienda" value="tioa" type="radio">Tío (a)<br>
+            <input name="vivienda" value="primoa" type="radio">Primo (a)<br>
+            <input name="vivienda" value="sobrinoa" type="radio">Sobrino (a)<br>    
+            <input name="vivienda" value="tutora" type="radio">Tutor (a)<br>
+            <input name="vivienda" value="" type="radio">Otros (a)<input type="text" name="otros" />
+        </p>
       </form>
   
       <h3>¿A quién quisieras que contactemos si tuvieras algún problema?</h3>
       <form id="frm6">
-        Nombre Completo: <input name="nombreContacto" type="text"/> <br/>
-        ¿Qué es de ti?: <input name="relacionContacto" type="text"/> <br/>
-        Teléfono de contacto: <input name="telefonoContacto" type="text"/> <br/> 
+        <p>
+            Nombre Completo: <input class="required" name="nombreContacto" type="text"/> <br/>
+            ¿Qué es de ti?: <input class="required" name="relacionContacto" type="text"/> <br/>
+            Teléfono de contacto: <input class="required" name="telefonoContacto" type="text"/> <br/> 
+        </p>
       </form>
-  
-  
-  
-      <input onclick="sendAnswers(); return true" value="Enviar respuestas">
+      <button onclick="sendAnswers(); return true">Enviar respuestas</button>
     </div>
   </body>
 </html>
