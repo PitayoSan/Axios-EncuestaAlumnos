@@ -19,18 +19,21 @@
       <h2>Datos Generales del Alumno</h2>
       <form id="frm1" action="/action_page.php">
         <p>
-         Nombre de la escuela:
-          <input class="required" name="escuela" type="text"/> <br/>
-          Grado: 
-          <input class="required" name="grado" type="number" min="1" max="3" step="1" value="1" /> <br/>
+          Nombre de la escuela: <input class="required" name="escuela" type="text"/> <br/>
+          Municipio: <input class="required" name="municipio" type="text"/> <br/>
+          Grado: <input class="required" name="grado" type="number" min="1" max="3" step="1" value="1" /> <br/>
           Grupo: <input class="required" name="grupo" type="text"/> <br/>
-          Turno: <input class="required" name="turno" type="text"/> <br/>
-  
+          Número de Lista: <input class="required" name="numLista" type="number" min="1" step="1"/> <br/>
+          Turno: <input class="required" name="turno" value ="maniana" type="radio">Mañana</input>
+                 <input class="required" name="turno" value="tarde" type="radio">Tarde</input> </br>
+
           <h3>Nombre del alumno</h3>
           Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
           Apellido Materno: <input class="required" name="aMaterno" type="text"/> <br/>
           Nombres: <input class="required" name="nombres" type="text"/> <br/>
-          Edad: <input class="required" name="edad" type="text"/> <br/>
+          Edad: <input class="required" name="edad" type="number" min="1" step="1"/> <br/>
+          Sexo: <input class="required" name="sexo" value ="hombre" type="radio">Hombre</input>
+                <input class="required" name="sexo" value="mujer" type="radio">Mujer</input> </br>
           Lugar de Nacimiento: <input class="required" name="lugarNacimiento" type="text"/> <br/>
         </p>
       </form>
@@ -49,6 +52,7 @@
         <p>
           Calle: <input class="required" name="calle" type="text"/> <br/>
           Número: <input class="required" name="numCasa" type="text"/> <br/>
+          Entre Calles: <input class="required" name="entreCalles" type="text"/> <br/>
           Colonia: <input class="required" name="colonia" type="text"/> <br/>
           Municipio: <input class="required" name="municipio" type="text"/> <br/>
           Teléfono de casa:

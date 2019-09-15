@@ -1,8 +1,11 @@
 var data = {
     'escuela': '',
+    'municipio': '',
     'grado': '',
     'grupo': '',
+    'numLista': '',
     'turno': '',
+    'sexo' : '',
     'aPaterno' : '',
     'aMaterno' : '',
     'nombres' : '',
@@ -13,6 +16,7 @@ var data = {
     'correo' : '',
     'calle' : '',
     'numCasa' : '',
+    'entreCalles': '',
     'colonia' : '',
     'municipio' : '',
     'telefono' : '',
@@ -40,31 +44,60 @@ function checkAnswers(){
 
 }
 
+function getRadioVal(form, name) {
+    var val;
+    var radios = form.elements[name];
+    
+    for (var i=0, len=radios.length; i<len; i++) {
+        if ( radios[i].checked ) { 
+            val = radios[i].value; 
+            break; 
+        }
+    }
+    return val;
+}
+
+function getCheckBoxVal(form,name){
+
+}
+
+function dumpInfoByForm(form){
+    for (i = 0; i < form.length ;i++) {
+        var value;
+        if(form.elements[i].type == "radio"){
+            value = getRadioVal(form, form.elements[i].name);
+            if(form.elements[i].className=='required' && value===''){
+                alert("Completa todos los campos");
+                return false;
+            }
+            i += form.elements[form.elements[i].name].length-1;
+        }
+
+        else if(form.elements[i].type == "checkbox"){
+            
+        }
+
+        else{
+            value = form.elements[i].value;
+            if(form.elements[i].className=='required' && value===''){
+                alert("Completa todos los campos");
+                return false;
+            }
+        }
+
+        data[form.elements[i].name] += value;
+    }
+}
+
+
+
 function sendAnswers(){
-    var x = document.getElementById("frm1");
-    for (i = 0; i < x.length ;i++) {
-        if(x.elements[i].className=='required' && x.elements[i].value===''){
-            alert("Completa el campo "+x.elements[i].name);
-            return;
-        }
-        data[x.elements[i].name] += x.elements[i].value;
-    }
-    var y = document.getElementById("frm2");
-    for (i = 0; i < y.length ;i++) {
-        if(x.elements[i].className=='required' && x.elements[i].value===''){
-            alert("Completa el campo "+x.elements[i].name);
-            return;
-        }
-        data[y.elements[i].name] += y.elements[i].value;
-    }
-    var z = document.getElementById("frm3");
-    for (i = 0; i < z.length ;i++) {
-        if(x.elements[i].className=='required' && x.elements[i].value===''){
-            alert("Completa el campo "+x.elements[i].name);
-            return;
-        }
-        data[z.elements[i].name] += z.elements[i].value;
-    }
+    var frm1 = document.getElementById("frm1");
+    
+    if(dumpInfoByForm(document.getElementById("frm1")) == false) return;
+    if(dumpInfoByForm(document.getElementById("frm2")) == false) return;
+    if(dumpInfoByForm(document.getElementById("frm3")) == false) return;
+    
     const keys = Object.keys(data);
     console.log(keys.length);
     var answers = new Array(keys.length);
@@ -85,6 +118,6 @@ function sendAnswers(){
     }
     csv+="\r\n";
     download(csv, 'respuestas.csv', 'data:text/csv;charset=urf-8');
-    console.log(csv)
+    console.log(csv);
 }
       
