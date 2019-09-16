@@ -57,7 +57,14 @@ var data = {
 
     //Datos de Familia
     //Estado Civil de Tus Padres
-    'estadoCivil' : '',
+    'civilCasados' : '',
+    'civilDivorciados' : '',
+    'civilSeparados' : '',
+    'civilUnionL' : '',
+    'civilViudo' : '',
+    'civilJuntoDeNuevo' : '',
+    'civilVolvioACasar' : '',
+    'civilOtro' : '',
 
     //¿Con quien vives?
     'vivePapa' : '',

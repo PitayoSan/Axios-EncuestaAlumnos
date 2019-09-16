@@ -365,15 +365,14 @@
         <p>
           <h3>Estado Civil de tus padres:</h3>
           <!--solo el primero necesita ser required-->
-          <select name="estadoCivil">
-            <option value="civilCasados">Casados</option>
-            <option value="civilDivorciados">Divorciados</option>
-            <option value="civilSeparados">Separados</option>
-            <option value="civilUnionL">Unión libre</option>
-            <option value="civilViudo">Viudo (a)</option>
-            <option value="civilJuntoDeNuevo">Se volvió a juntar</option>
-            <option value="civilVolvioACasar">Se volvió a casar</option>
-          </select></br>
+          <input class="required" name="estadoCivil" id="civilCasados" type="checkbox" />Casados<br>
+          <input name="estadoCivil" id="civilDivorciados" type="checkbox" />Divorciados<br>
+          <input name="estadoCivil" id="civilSeparados" type="checkbox" />Separados<br>
+          <input name="estadoCivil" id="civilUnionL" type="checkbox" />Unión libre<br>
+          <input name="estadoCivil" id="civilViudo" type="checkbox" />Viudo (a)<br>
+          <input name="estadoCivil" id="civilJuntoDeNuevo" type="checkbox" />Se volvió a juntar<br>
+          <input name="estadoCivil" id="civilVolvioACasar" type="checkbox" />Se volvió a casar<br>
+          Otro:<input name="estadoCivil" id="civilOtro" type="text" />
           <h3>Indica todas las personas con las que vives</h3>
           <!--solo el primero necesita ser required-->
           <input class="required" name="vivienda" id="vivePapa" type="checkbox" />Papá<br>
