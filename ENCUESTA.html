@@ -1,47 +1,62 @@
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="NoModificar/style.css">
-    <link rel="stylesheet" href="NoModificar/css/bootstrap.min.css">
-    <!--<script src="script.js"></script>-->
-  </head>
-  <body onload="loadForms()">
-      <div class="tab">
-          <div class="container text-center">
-            <img src="NoModificar/img/logo.png" alt="Logo Axios"/>
-          </div>
-      <h1 class="titulo py-3"> Ficha de Registro del Programa AXIOS (Misión Mujer A.C.) </h1>
-      </br>
-      <div class="container" style="text-align: justify;">
-        <span>
-          Estimado alumno(a), te pedimos leas detenidamente la siguiente información
-          y si estás de acuerdo con lo que se te solicita, nos proporciones los datos. 
-          Es importante que sepas que éstos se encontrarán sujetos y protegidos
-          en los términos y condiciones del Aviso de Privacidad de Misión Mujer, A.C.,
-          al que puedes acceder en la página electrónica www.axios.org.mx; si tienes alguna
-          duda sobre lo que se te solicita, por favor háznoslo saber...¡Gracias!
-        </span>
-      </div>
-      <form id="frm0"></form>
-    </div>
 
-    <div class="container">
-      <div class="tab">
-        <form id="frm1">
-          <h2>Tus datos</h2> 
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <!--<script src="script.js"></script>-->
+</head>
+
+<body onload="loadForms()">
+  <div class="tab">
+    <div class="container text-center">
+      <img src="img/logo.png" alt="Logo Axios" />
+    </div>
+    <h1 class="titulo py-3"> Ficha de Registro del Programa AXIOS (Misión Mujer A.C.) </h1>
+    <br>
+    <div class="container" style="text-align: justify;">
+      <span>
+        Estimado alumno(a), te pedimos leas detenidamente la siguiente información
+        y si estás de acuerdo con lo que se te solicita, nos proporciones los datos.
+        Es importante que sepas que éstos se encontrarán sujetos y protegidos
+        en los términos y condiciones del Aviso de Privacidad de Misión Mujer, A.C.,
+        al que puedes acceder en la página electrónica www.axios.org.mx; si tienes alguna
+        duda sobre lo que se te solicita, por favor háznoslo saber...¡Gracias!
+      </span>
+    </div>
+    <form id="frm0"></form>
+  </div>
+
+  <div class="container">
+    <div class="tab">
+      <form class="frm1 p-5">
+        <div class="form-group">
+          <h2>Tus datos</h2>
           <p>
-              Municipio: <select class="required" id="municipioEscuela" name="municipioEscuela" onchange="setSchools()" type="select"> </select> <br/>
-            Nombre de tu escuela: <select class="required" id="escuela" name="escuela" type="select"> </select> <br/>
-            Grado: <select class="required" name="grado">
+            Nombre de tu escuela:
+            <select class="form-control-sm" name="escuela">
+              <option value="tecnica25">Técnica #25</option>
+              <option value="juanDeDios">Foránea #77 "Juan de Dios Robledo</option>
+              <option value="foranea25">General Foránea #25</option>
+              <option value="tecnica48">Técnica #48</option>
+              <option value="122MontesDeOca">#122 "Francisco Montes de Oca"</option>
+              <option value="mixta5">Mixta #5 "Lic. Juan Manuel Ruvalcaba De la Mora"</option>
+              <option value="general59">General #59 "Francisco Marquez</option>
+              <option value="general67">General #67 "Juan José Arreola"</option>
+              <option value="general136">General #136 "Alma Rosa Padilla Rodriguez"</option>
+            </select> <br />
+            <!--Municipio: <input class="required" name="municipio" type="text"/> <br/>-->
+            Grado:
+            <select class="required form-control-sm" name="grado">
               <option value="1">1ro</option>
               <option value="2">2do</option>
               <option value="3">3ro</option>
             </select>
-            <br/>
-            Grupo: <select class="required" name="grupo">
+            <br />
+            Grupo: <select class="required form-control-sm" name="grupo">
               <option value="A">A</option>
               <option value="B">B</option>
               <option value="C">C</option>
@@ -49,71 +64,198 @@
               <option value="E">E</option>
               <option value="F">F</option>
             </select>
-            <br/>
-            Número de Lista:  <select class="required" id="numLista" name="numLista"> </select> <br/>
+            <br />
+            Número de Lista: <select class="required form-control-sm" id="numLista" name="numLista"> </select> <br />
 
-            Turno: <input class="required" name="turno" value ="M" type="radio">Mañana</input>
-                  <input class="required" name="turno" value="V" type="radio">Tarde</input> </br>
-            </br>
-            <h3>Tu nombre</h3>
-            Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
-            Apellido Materno: <input class="required" name="aMaterno" type="text"/> <br/>
-            Nombres: <input class="required" name="nombres" type="text"/> <br/>
-            Edad: <select class="required" id="edad" name="edad"> </select> <br/>
-            Sexo: <input class="required" name="sexo" value ="H" type="radio">Hombre</input>
-                  <input class="required" name="sexo" value="M" type="radio">Mujer</input> </br>
-            ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal" onchange="showNumbSessions()" name="asistidoAcompPersonal"> 
-              <option value="no" >No</option>
-              <option value="si" >Sí</option>
-            </select> <br/>
-            <div style="visibility: hidden;" id="numSessions">
-                ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br/>
+            Turno:
+            <div class="form-check form-check-inline">
+              <input class="required form-check-input" name="turno" value="M" type="radio">
+              <label class="form-check-label">Mañana</label>
+            </div>
+            <div class="form-check form-check-inline">
+
+              <input class="required form-check-input" name="turno" value="V" type="radio">
+              <label class="form-check-label">Tarde</label>
+            </div>
+            <br>
+            <br>
+        </div>
+
+        <div class="form-group">
+          <h3>Tu nombre</h3>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Apellido Paterno:</label>
+              <input class="required form-control" name="aPaterno" type="text">
+            </div>
+            <div class="form-group col-md-6">
+              <label>Apellido Materno:</label>
+              <input class="required form-control" name="aMaterno" type="text">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-12">
+              <label>Nombre(s):</label>
+              <input class="required form-control" name="nombres" type="text">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Edad:</label>
+              <select class="required form-control-sm" id="edad" name="edad"> </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label>Sexo:</label>
+              <div class="form-check form-check-inline">
+                <input class="required form-check-input" name="sexo" value="H" type="radio">
+                <label class="form-check-label">Hombre</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="required form-check-input" name="sexo" value="M" type="radio">
+                <label class="form-check-label">Mujer</label>
+              </div>
+            </div>
+          </div>
+          ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal"
+            name="asistidoAcompPersonal">
+            <option value="no">No</option>
+            <option value="si">Sí</option>
+          </select> <br />
+          ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br />
+          </p>
+        </div>
+      </form>
+    </div>
+
+    <div class="tab">
+      <form id="frm2 ">
+        <div class="form-group p-5">
+
+          <h2>Tus redes sociales</h2>
+          <p>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Facebook:</label>
+                <input name="facebook" type="text" class="form-control">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Instragram: </label>
+                <input name="instagram" class="form-control" type="text">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Correo Electrónico</label>
+                <input name="correo" class="form-control" type="text">
+              </div>
             </div>
           </p>
-        </form>
-      </div>
+        </div>
+      </form>
+    </div>
 
-      <div class= "tab">
-        <form id="frm2">
-          <h2>Tus redes sociales</h2>
-            <p>
-              Facebook: <input name="facebook" class="specialText" type="text"/> <br/>
-              Instagram: <input name="instagram" class="specialText" type="text"/> <br/>
-              Correo Electrónico: <input name="correo" class="specialText" type="email"/> <br/>
-            </p>
-        </form>
-      </div>
+    <div class="tab">
+      <form id="frm3">
+        <div class="form-group p-5">
 
-      <div class="tab">
-        <form id="frm3">
           <h2>Datos de tu casa</h2>
           <p>
-            Calle: <input class="required" name="calle" type="text"/> <br/>
-            Número: <input class="required" name="numCasa" type="text"/> <br/>
-            ¿Entre qué calles está tu casa?: <input class="required" name="entreCalles" type="text"/> <br/>
-            Colonia: <input class="required" name="colonia" type="text"/> <br/>
-            Municipio: <input class="required" name="municipioCasa" type="text"/> <br/>
-            Teléfono de casa:
-            <input class="required" name="telefonoCasa" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
-            Celular del estudiante:
-            <input class="required" name="celular" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Calle:</label>
+                <input class="required form-control" name="calle" type="text" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-4">
+                <label>Número:</label>
+                <input class="required form-control" name="numCasa" type="text" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Colonia:</label>
+                <input class="required form-control" name="colonia" type="text" />
+              </div>
+              <div class="form-group col-md-6">
+                <label>Municipio:</label>
+                <input class="required form-control" name="municipioCasa" type="text" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>¿Entre qué calles está tu casa?</label>
+                <input class="required form-control" name="entreCalles" type="text" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-5">
+                <label>Teléfono de casa:</label>
+              </div>
+              <div class="form-group col-md-7">
+                <input class="required form-control" name="telefonoCasa" type="tel" name="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-5">
+                <label>Celular del estudiante:</label>
+              </div>
+              <div class="form-group col-md-7">
+                <input class="required form-control" name="celular" type="tel" name="phone"
+                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+              </div>
+            </div>
+            <br />
           </p>
-        </form> 
-      </div>
-      
-      <div class="tab">
-        <form id = "frm4">
+        </div>
+      </form>
+    </div>
+
+    <div class="tab">
+      <form id="frm4">
+        <div class="form-group p-5">
           <h2>Datos de tu papá, mamá o tutor</h2>
-          <h3>(En caso de ser Tutor, agrega el parentesco)</h3>
-            <p>
-                <h3>Nombre completo de tu papá o tutor</h3>
-                Apellido Paterno: <input name="aPaternoPadre" type="text"/> <br/>
-                Apellido Materno: <input name="aMaternoPadre" type="text"/> <br/>
-                Nombres: <input name="nombresPadre" type="text"/> <br/>
-                Edad: <select id="edadPadre" name="edadPadre"> </select> <br/>
-                ¿A qué se dedica?: <input name="ocupacionPadre" type="text"/> <br/>
-                ¿Hasta qué grado estudió?: 
-                <select name="gradoPadre">
+          <h6>(En caso de ser Tutor, agrega el parentesco)</h6>
+          <p>
+            <!--  DATOS DEL PADRE -->
+            <h3>Nombre completo de tu papá o tutor</h3>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Apellido Paterno:</label>
+                <input name="aPaternoPadre" type="text" class="form-control" />
+              </div>
+              <div class="form-group col-md-6">
+                <label>Apellido Materno:</label>
+                <input name="aMaternoPadre" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Nombre(s):</label>
+                <input name="nombresPadre" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label>Edad:</label>
+                <input name="edadPadre" type="number" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>¿A qué se dedica?</label>
+                <input name="ocupacionPadre" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>¿Hasta qué grado estudió?:</label>
+                <select class="form-control" name="gradoPadre">
                   <option value="desconocido">No estoy seguro</option>
                   <option value="primaria">Primaria</option>
                   <option value="secundaria">Secundaria</option>
@@ -121,95 +263,164 @@
                   <option value="tecnica">Carrera Técnica</option>
                   <option value="licenciatura">Licenciatura</option>
                   <option value="posgrado">Posgrado</option>
-                </select> <br/>
-                ¿Completó su grado de estudio?: 
-                <input class="required" name="gradoPadreCompleto" value ="si" type="radio">Si</input>
-                <input class="required" name="gradoPadreCompleto" value="no" type="radio">No</input> </br>
-                Teléfono de contacto: <input name="telefonoPadre" type="telPadres"/> <br/>
-              
-                <h3>Nombre completo de tu mamá o tutor</h3>
-                Apellido Paterno: <input name="aPaternoMadre" type="text"/> <br/>
-                Apellido Materno: <input name="aMaternoMadre" type="text"/> <br/>
-                Nombres: <input name="nombresMadre" type="text"/> <br/>
-                Edad: <select id="edadMadre" name="edadMadre"> </select> <br/>
-                ¿A qué se dedica?: <input name="ocupacionMadre" type="text"/> <br/>
-                ¿Hasta qué grado estudió?: 
-                <select name="gradomadre">
-                    <option value="desconocido">No estoy seguro</option>
-                    <option value="primaria">Primaria</option>
-                    <option value="secundaria">Secundaria</option>
-                    <option value="bachillerato">Preparatoria</option>
-                    <option value="tecnica">Carrera Técnica</option>
-                    <option value="licenciatura">Licenciatura</option>
-                    <option value="posgrado">Posgrado</option>
-                  </select> <br/>
-                ¿Completó su grado de estudio?: 
-                <input class="required" name="gradoMadreCompleto" value ="si" type="radio">Si</input>
-                <input class="required" name="gradoMadreCompleto" value="no" type="radio">No</input> </br>
-                Teléfono de contacto: <input name="telefonoMadre" type="telPadres"/> <br/>
-            </p>
-        </form>
-      </div>  
+                </select>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>¿Completó su grado de estudio?:</label>
+                <div class="form-check form-check-inline">
+                  <input class="required form-check-input" name="gradoPadreCompleto" value="si" type="radio">
+                  <label class="form-check-label">Si</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="required form-check-input" name="gradoPadreCompleto" value="no" type="radio">
+                  <label class="form-check-label">No</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-5">
+                <label>Teléfono de contacto:</label>
+              </div>
+              <div class="form-group col-md-7">
+                <input name="telefonoPadre" type="telPadres" class="form-control" />
+              </div>
+            </div>
 
-      <div class ="tab">
-        <form id="frm5">
-          <h2>Datos de tu familia</h2>
-            <p>
-                <h3>Estado Civil de tus padres:</h3> <!--solo el primero necesita ser required-->
-                <select name="estadoCivil">
-                  <option value="civilCasados">Casados</option>
-                  <option value="civilDivorciados">Divorciados</option>
-                  <option value="civilSeparados">Separados</option>
-                  <option value="civilUnionL">Unión libre</option>
-                  <option value="civilViudo">Viudo (a)</option>
-                  <option value="civilJuntoDeNuevo">Se volvió a juntar</option>
-                  <option value="civilVolvioACasar">Se volvió a casar</option>
-                </select></br>
-                <h3>Indica todas las personas con las que vives</h3> <!--solo el primero necesita ser required-->
-                <input class = "required" name="vivienda" id="vivePapa" type="checkbox"/>Papá<br>
-                <input name="vivienda" id="viveMama" type="checkbox"/>Mamá<br>
-                <input name="vivienda" id="viveHermano" type="checkbox"/>Hermano (a)<br>
-                <input name="vivienda" id="viveAbuelo" type="checkbox"/>Abuelo (a)<br>
-                <input name="vivienda" id="viveTio" type="checkbox"/>Tío (a)<br>
-                <input name="vivienda" id="vivePrimo" type="checkbox"/>Primo (a)<br>
-                <input name="vivienda" id="viveSobrino" type="checkbox"/>Sobrino (a)<br>    
-                <input name="vivienda" id="viveTutor" type="checkbox"/>Tutor (a)<br>
-                Otro:<input name="viveOtro" id= "viveOtro" type="text"/>
-                <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
-            </p>
-        </form>
-      </div>
-      
-      <div class = "tab">
-        <form id="frm6">
-          <h3>¿A quién quisieras que contactemos si tuvieras algún problema?</h3>
-          <p>
-              Nombre Completo: <input class="required" name="nombreContacto" type="text"/> <br/>
-              ¿Qué es de ti?:
-              <select name="relacionContacto">
-                <option value="papa">Papá</option>
-                <option value="mama">Mamá</option>
-                <option value="hermano">Hermano (a)</option>
-                <option value="abuelo">Abuelo (a)</option>
-                <option value="tio">Tío (a)</option>
-                <option value="primo">Primo (a)</option>
-                <option value="sobrino">Sobrino (a)</option>
-                <option value="tutor">Tutor (a)</option>
-              </select> <br/>
-              Teléfono de contacto: <input class="required" name="telefonoContacto" type="text"/> <br/> 
+            <!-- DATOS DE LA MADRE -->
+            <h3>Nombre completo de tu mamá o tutor</h3>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>Apellido Paterno:</label>
+                <input name="aPaternoMadre" type="text" class="form-control" />
+              </div>
+              <div class="form-group col-md-6">
+                <label>Apellido Materno:</label>
+                <input name="aMaternoMadre" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>Nombre(s):</label>
+                <input name="nombresMadre" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-8">
+                <label>Edad:</label>
+                <input name="edadMadre" type="number" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-12">
+                <label>¿A qué se dedica?</label>
+                <input name="ocupacionMadre" type="text" class="form-control" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>¿Hasta qué grado estudió?:</label>
+                <select class="form-control" name="gradomadre">
+                  <option value="desconocido">No estoy seguro</option>
+                  <option value="primaria">Primaria</option>
+                  <option value="secundaria">Secundaria</option>
+                  <option value="bachillerato">Preparatoria</option>
+                  <option value="tecnica">Carrera Técnica</option>
+                  <option value="licenciatura">Licenciatura</option>
+                  <option value="posgrado">Posgrado</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col-md-6">
+                <label>¿Completó su grado de estudio?:</label>
+                <div class="form-check form-check-inline">
+                  <input class="required form-check-input" name="gradoMadreCompleto" value="si" type="radio">
+                  <label class="form-check-label">Si</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="required form-check-input" name="gradoMadreCompleto" value="no" type="radio">
+                  <label class="form-check-label">No</label>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-md-5">
+                <label>Teléfono de contacto:</label>
+              </div>
+              <div class="form-group col-md-7">
+                <input name="telefonoMadre" type="telPadres" class="form-control" />
+              </div>
+            </div>
           </p>
-      </form>
-      </div>
-
-      <div style="overflow:auto;">
-        <div style="float:right;">
-          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
-          <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
         </div>
-      </div>
-
-      <!--<button onclick="sendAnswers(); return true">Enviar respuestas</button>-->
+      </form>
     </div>
-  </body>
-  <script type="text/javascript" src="NoModificar/script.js"></script>
+
+    <div class="tab">
+      <form id="frm5">
+        <h2>Datos de tu familia</h2>
+        <p>
+          <h3>Estado Civil de tus padres:</h3>
+          <!--solo el primero necesita ser required-->
+          <select name="estadoCivil">
+            <option value="civilCasados">Casados</option>
+            <option value="civilDivorciados">Divorciados</option>
+            <option value="civilSeparados">Separados</option>
+            <option value="civilUnionL">Unión libre</option>
+            <option value="civilViudo">Viudo (a)</option>
+            <option value="civilJuntoDeNuevo">Se volvió a juntar</option>
+            <option value="civilVolvioACasar">Se volvió a casar</option>
+          </select></br>
+          <h3>Indica todas las personas con las que vives</h3>
+          <!--solo el primero necesita ser required-->
+          <input class="required" name="vivienda" id="vivePapa" type="checkbox" />Papá<br>
+          <input name="vivienda" id="viveMama" type="checkbox" />Mamá<br>
+          <input name="vivienda" id="viveHermano" type="checkbox" />Hermano (a)<br>
+          <input name="vivienda" id="viveAbuelo" type="checkbox" />Abuelo (a)<br>
+          <input name="vivienda" id="viveTio" type="checkbox" />Tío (a)<br>
+          <input name="vivienda" id="vivePrimo" type="checkbox" />Primo (a)<br>
+          <input name="vivienda" id="viveSobrino" type="checkbox" />Sobrino (a)<br>
+          <input name="vivienda" id="viveTutor" type="checkbox" />Tutor (a)<br>
+          Otro:<input name="vivienda" id="viveOtro" type="text" />
+          <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
+        </p>
+      </form>
+    </div>
+
+    <div class="tab">
+      <form id="frm6">
+        <h3>¿A quién quisieras que contactemos si tuvieras algún problema?</h3>
+        <p>
+          Nombre Completo: <input class="required" name="nombreContacto" type="text" /> <br />
+          ¿Qué es de ti?:
+          <select name="relacionContacto">
+            <option value="papa">Papá</option>
+            <option value="mama">Mamá</option>
+            <option value="hermano">Hermano (a)</option>
+            <option value="abuelo">Abuelo (a)</option>
+            <option value="tio">Tío (a)</option>
+            <option value="primo">Primo (a)</option>
+            <option value="sobrino">Sobrino (a)</option>
+            <option value="tutor">Tutor (a)</option>
+          </select> <br />
+          Teléfono de contacto: <input class="required" name="telefonoContacto" type="text" /> <br />
+        </p>
+      </form>
+    </div>
+
+    <div style="overflow:auto;">
+      <div style="float:right;">
+        <button type="button" class="btn btn-dark" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+        <button type="button" class="btn btn-dark" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+      </div>
+    </div>
+
+    <!--<button onclick="sendAnswers(); return true">Enviar respuestas</button>-->
+  </div>
+</body>
+<script type="text/javascript" src="script.js"></script>
+
 </html>
