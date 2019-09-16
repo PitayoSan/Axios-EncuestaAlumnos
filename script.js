@@ -171,7 +171,8 @@ function dumpInfoByForm(form){
 function sendAnswers(){
     var today = new Date();
     var year = today.getFullYear();
-    var claveAlumno= '122'+data['turno']+'SJL'+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year;
+    var minutes = today.getMinutes();
+    var claveAlumno= '122'+data['turno']+'SJL'+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
     data['claveAlumno'] = claveAlumno;
     const keys = Object.keys(data);
     console.log(keys.length);
