@@ -138,19 +138,19 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label>Facebook:</label>
-                <input name="facebook" type="text" class="form-control">
+                <input name="facebook" type="text" class="specialText form-control">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label>Instragram: </label>
-                <input name="instagram" class="form-control" type="text">
+                <input name="instagram" class="specialText form-control" type="text">
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label>Correo Electrónico</label>
-                <input name="correo" class="form-control" type="text">
+                <input name="correo" class="specialText form-control" type="email">
               </div>
             </div>
           </p>
@@ -243,7 +243,7 @@
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label>Edad:</label>
-                <input name="edadPadre" type="number" class="form-control" />
+                <select id="edadMadre" name="edadMadre" class="form-control"> </select> 
               </div>
             </div>
             <div class="form-row">
@@ -309,7 +309,7 @@
             <div class="form-row">
               <div class="form-group col-md-8">
                 <label>Edad:</label>
-                <input name="edadMadre" type="number" class="form-control" />
+                <select id="edadMadre" name="edadMadre" class="form-control"> </select> 
               </div>
             </div>
             <div class="form-row">
@@ -321,7 +321,7 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label>¿Hasta qué grado estudió?:</label>
-                <select class="form-control" name="gradomadre">
+                <select class="form-control" name="gradoMadre">
                   <option value="desconocido">No estoy seguro</option>
                   <option value="primaria">Primaria</option>
                   <option value="secundaria">Secundaria</option>
@@ -384,7 +384,7 @@
           <input name="vivienda" id="vivePrimo" type="checkbox" />Primo (a)<br>
           <input name="vivienda" id="viveSobrino" type="checkbox" />Sobrino (a)<br>
           <input name="vivienda" id="viveTutor" type="checkbox" />Tutor (a)<br>
-          Otro:<input name="vivienda" id="viveOtro" type="text" />
+          Otro:<input name="viveOtro" id="viveOtro" type="text" />
           <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
         </p>
       </form>

@@ -313,7 +313,7 @@ function dumpInfoByForm(form){
 
         }else{
             x = form.elements[i];
-            if(x.className=="specialText"){
+            if(x.className=="specialText form-control"){
                 specialText = true;
             }
             value = x.value;
