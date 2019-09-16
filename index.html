@@ -33,19 +33,8 @@
         <form id="frm1">
           <h2>Tus datos</h2> 
           <p>
-            Nombre de tu escuela:
-            <select name="escuela">
-              <option value="tecnica25">Técnica #25</option>
-              <option value="juanDeDios">Foránea #77 "Juan de Dios Robledo</option>
-              <option value="foranea25">General Foránea #25</option>
-              <option value="tecnica48">Técnica #48</option>
-              <option value="122MontesDeOca">#122 "Francisco Montes de Oca"</option>
-              <option value="mixta5">Mixta #5 "Lic. Juan Manuel Ruvalcaba De la Mora"</option>
-              <option value="general59">General #59 "Francisco Marquez</option>
-              <option value="general67">General #67 "Juan José Arreola"</option>
-              <option value="general136">General #136 "Alma Rosa Padilla Rodriguez"</option>
-            </select> <br/>
-           <!--Municipio: <input class="required" name="municipio" type="text"/> <br/>-->
+              Municipio: <select class="required" id="municipioEscuela" name="municipioEscuela" onchange="setSchools()" type="select"> </select> <br/>
+            Nombre de tu escuela: <select class="required" id="escuela" name="escuela" type="select"> </select> <br/>
             Grado: <select class="required" name="grado">
               <option value="1">1ro</option>
               <option value="2">2do</option>
