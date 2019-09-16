@@ -77,6 +77,11 @@ var data = {
     'telefonoContacto' : ''
 
 };
+function sanitize(str){
+    var ans = str.normalize("NFD").replace(/[\u0300-\u036f]^([a-zA-Z0-9\s]+)/g, "")
+    ans = ans.replace(/[^0-9a-z\s]/gi, '')
+    return ans.toUpperCase();
+}
    
 function download(data, filename, type) {
     var file = new Blob([data], {type: type});
@@ -156,7 +161,7 @@ function dumpInfoByForm(form){
             }
         }
 
-        data[form.elements[i].name] = value;
+        data[form.elements[i].name] = sanitize(value);
     }
 
     return true;
@@ -174,13 +179,13 @@ function sendAnswers(){
     for (var i = 0; i < answers.length; i++) {
         answers[i][0] = keys[i];
         csv+=keys[i];
-        csv+=',';
+        csv+=', ';
         answers[i][1] = data[keys[i]];
     }
     csv+="\r\n";
     for (var i = 0; i < answers.length; i++) {
         csv+=data[keys[i]];
-        csv+=',';
+        csv+=', ';
     }
     csv+="\r\n";
     download(csv, 'respuestas.csv', 'data:text/csv;charset=urf-8');
