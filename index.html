@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <!--<script src="script.js"></script>-->
   </head>
-  <body>
+  <body onload="loadForms()">
       <div class="tab">
           <div class="container text-center">
             <img src="img/logo.png" alt="Logo Axios"/>\
@@ -34,11 +34,11 @@
           <h2>Tus datos</h2> 
           <p>
             Nombre de tu escuela: <input class="required" name="escuela" type="text"/> <br/>
-            Municipio: <input class="required" name="municipio" type="text"/> <br/>
+            Municipio: <select class="required" id="municipioEscuela" name="municipioEscuela" type="select"> </select> <br/>
             Grado: <select class="required" name="grado">
               <option value="1">1ro</option>
-              <option value="1">2do</option>
-              <option value="1">3ro</option>
+              <option value="2">2do</option>
+              <option value="3">3ro</option>
             </select>
             <br/>
             Grupo: <select class="required" name="grupo">
@@ -50,7 +50,7 @@
               <option value="F">F</option>
             </select>
             <br/>
-            Número de Lista: <input class="required" name="numLista" type="number" min="1" step="1"/> <br/>
+            Número de Lista:  <select class="required" id="numLista" name="numLista"> </select> <br/>
             Turno: <input class="required" name="turno" value ="M" type="radio">Mañana</input>
                   <input class="required" name="turno" value="V" type="radio">Tarde</input> </br>
             </br>
@@ -58,7 +58,7 @@
             Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
             Apellido Materno: <input class="required" name="aMaterno" type="text"/> <br/>
             Nombres: <input class="required" name="nombres" type="text"/> <br/>
-            Edad: <input class="required" name="edad" type="number" min="1" step="1"/> <br/>
+            Edad: <select class="required" id="edad" name="edad"> </select> <br/>
             Sexo: <input class="required" name="sexo" value ="H" type="radio">Hombre</input>
                   <input class="required" name="sexo" value="M" type="radio">Mujer</input> </br>
           </p>
@@ -84,7 +84,7 @@
             Número: <input class="required" name="numCasa" type="text"/> <br/>
             ¿Entre qué calles está tu casa?: <input class="required" name="entreCalles" type="text"/> <br/>
             Colonia: <input class="required" name="colonia" type="text"/> <br/>
-            Municipio: <input class="required" name="municipio" type="text"/> <br/>
+            Municipio: <input class="required" name="municipioCasa" type="text"/> <br/>
             Teléfono de casa:
             <input class="required" name="telefono" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
             Celular:

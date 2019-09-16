@@ -5,7 +5,7 @@ var data = {
     //Datos Generales del Alumno
     'claveAlumno': '',
     'escuela': '',
-    'municipio': '',
+    'municipioEscuela': '',
     'grado': '',
     'grupo': '',
     'numLista': '',
@@ -29,7 +29,7 @@ var data = {
     'numCasa' : '',
     'entreCalles': '',
     'colonia' : '',
-    'municipio' : '',
+    'municipioCasa' : '',
     'telefono' : '',
     'celular' : '',
 
@@ -83,6 +83,37 @@ function sanitize(str){
     var ans = str.normalize("NFD").replace(/[\u0300-\u036f]^([a-zA-Z0-9\s]+)/g, "")
     ans = ans.replace(/[^0-9a-z\s]/gi, '')
     return ans.toUpperCase();
+}
+
+var municipiosEscuela = [['SJL', 'San Juan de los Lagos'], ['SMA', 'San Miguel el Alto'], ['ZAP', 'Zapopan']]
+
+
+
+function loadForms(){
+    for(var i=0; i<municipiosEscuela.length; i++){
+        var select = document.getElementById("municipioEscuela");
+        var option = document.createElement("OPTION");
+        option.text=municipiosEscuela[i][1];
+        console.log(option.text)
+        option.value=municipiosEscuela[i][0];
+        console.log(option.value)
+        select.options.add(option);
+        
+    }
+    for(var i=1; i<=40; i++){
+        var select = document.getElementById("numLista");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
+    for(var i=10; i<=20; i++){
+        var select = document.getElementById("edad");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
 }
    
 function download(data, filename, type) {
@@ -154,8 +185,12 @@ function dumpInfoByForm(form){
             i += form.elements[form.elements[i].name].length-1;
             continue;
         }
+        else if(form.elements[i].type == "select"){
+            var e = form.elements[i];
+            data[e.name] = e.options[e.selectedIndex].value;
+            console.log(e, e.options[e.selectedIndex].value)
 
-        else{
+        }else{
             value = form.elements[i].value;
             if(form.elements[i].className=='required' && value===''){
                 alert("Completa todos los campos");
