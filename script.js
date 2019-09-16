@@ -252,7 +252,10 @@ function showTab(n){
     }
     if (n == (x.length - 1)) {
       document.getElementById("nextBtn").innerHTML = "Enviar Respuestas";
-    } else {
+    } else if(n==0){
+        document.getElementById("nextBtn").innerHTML = "He leído y acepto el aviso de privacidad";
+    }else {
+        
       document.getElementById("nextBtn").innerHTML = "Siguiente";
     }
     //... and run a function that will display the correct step indicator:
