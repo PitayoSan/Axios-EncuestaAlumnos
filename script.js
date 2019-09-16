@@ -16,6 +16,7 @@ var data = {
     'nombres' : '',
     'edad' : '',
     'sexo' : '',
+
     'asistidoAcompPersonal': '',
     'numAcompPersonal': '',
 
@@ -30,7 +31,7 @@ var data = {
     'entreCalles': '',
     'colonia' : '',
     'municipioCasa' : '',
-    'telefono' : '',
+    'telefonoCasa' : '',
     'celular' : '',
 
     //Datos de Padre, Madre o Tutor
@@ -41,6 +42,7 @@ var data = {
     'edadPadre' : '',
     'ocupacionPadre': '',
     'gradoPadre' : '',
+    'gradoPadreCompleto' : '',
     'telefonoPadre' : '',
 
     //Nombre completo de la Madre
@@ -50,17 +52,12 @@ var data = {
     'edadMadre' : '',
     'ocupacionMadre' : '',
     'gradoMadre' : '',
+    'gradoMadreCompleto': '',
     'telefonoMadre' : '',
 
     //Datos de Familia
     //Estado Civil de Tus Padres
-    'civilCasados' : '',
-    'civilDivorciados' : '',
-    'civilSeparados' : '',
-    'civilUnionL' : '',
-    'civilViudo' : '',
-    'civilJuntoDeNuevo' : '',
-    'civilVolvioACasar' : '',
+    'estadoCivil' : '',
 
     //¿Con quien vives?
     'vivePapa' : '',
@@ -289,4 +286,4 @@ function fixStepIndicator(n) {
 function validateForm() {
     var x = document.getElementsByClassName("tab");
     return dumpInfoByForm(x[currentTab].getElementsByTagName("form")[0]);
-  }
+}
