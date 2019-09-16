@@ -62,11 +62,13 @@
             Edad: <select class="required" id="edad" name="edad"> </select> <br/>
             Sexo: <input class="required" name="sexo" value ="H" type="radio">Hombre</input>
                   <input class="required" name="sexo" value="M" type="radio">Mujer</input> </br>
-            ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal" name="asistidoAcompPersonal"> 
-              <option value="no">No</option>
-              <option value="si">Sí</option>
+            ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal" onchange="showNumbSessions()" name="asistidoAcompPersonal"> 
+              <option value="no" >No</option>
+              <option value="si" >Sí</option>
             </select> <br/>
-            ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br/>
+            <div style="visibility: hidden;" id="numSessions">
+                ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br/>
+            </div>
           </p>
         </form>
       </div>

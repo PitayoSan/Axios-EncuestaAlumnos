@@ -145,6 +145,12 @@ function sanitize(str){
     return ans.toUpperCase();
 }
 
+function showNumbSessions(){
+    if(document.getElementById("numSessions").style.visibility=="hidden"){
+        document.getElementById("numSessions").style.visibility="visible"   
+    } else document.getElementById("numSessions").style.visibility="hidden";
+}
+
 function setSchools(){
     var selectMun = document.getElementById("municipioEscuela");
     var mun = selectMun.options[selectMun.selectedIndex].value;
@@ -207,7 +213,7 @@ function loadForms(){
         option.value=i;
         select.options.add(option);
     }
-    for(var i=0; i<=10; i++){
+    for(var i=1; i<=10; i++){
         var select = document.getElementById("numAcompPersonal");
         var option = document.createElement("OPTION");
         option.text=i;
