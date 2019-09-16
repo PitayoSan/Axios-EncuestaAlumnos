@@ -38,8 +38,8 @@
             Grado: <input class="required" name="grado" type="number" min="1" max="3" step="1" value="1" /> <br/>
             Grupo: <input class="required" name="grupo" type="text"/> <br/>
             Número de Lista: <input class="required" name="numLista" type="number" min="1" step="1"/> <br/>
-            Turno: <input class="required" name="turno" value ="maniana" type="radio">Mañana</input>
-                  <input class="required" name="turno" value="tarde" type="radio">Tarde</input> </br>
+            Turno: <input class="required" name="turno" value ="matutino" type="radio">Mañana</input>
+                  <input class="required" name="turno" value="vespertino" type="radio">Tarde</input> </br>
             </br>
             <h3>Nombre del alumno</h3>
             Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
@@ -92,7 +92,17 @@
                 Nombres: <input name="nombresPadre" type="text"/> <br/>
                 Edad: <input name="edadPadre" type="text"/> <br/>
                 Ocupación: <input name="ocupacionPadre" type="text"/> <br/>
-                Hasta qué grado estudió: <input name="gradoPadre" type="text"/> <br/>
+                Hasta qué grado estudió: 
+                <select name="gradoPadre">
+                  <option value="desconocido">No estoy seguro</option>
+                  <option value="primaria">Primaria</option>
+                  <option value="secundaria">Secundaria</option>
+                  <option value="bachillerato">Preparatoria</option>
+                  <option value="tecnica">Carrera Técnica</option>
+                  <option value="licenciatura">Licenciatura</option>
+                  <option value="posgrado">Posgrado</option>
+                </select> <br/>
+                <!--<input name="gradoPadre" type="text"/> <br/>-->
                 Teléfono de contacto: <input name="telefonoPadre" type="text"/> <br/>
               
                 <h3>Nombre completo de la Madre</h3>
@@ -101,7 +111,16 @@
                 Nombres: <input name="nombresMadre" type="text"/> <br/>
                 Edad: <input name="edadMadre" type="text"/> <br/>
                 Ocupación: <input name="ocupacionMadre" type="text"/> <br/>
-                Hasta qué grado estudió: <input name="gradoMadre" type="text"/> <br/>
+                Hasta qué grado estudió:
+                <select name="gradomadre">
+                    <option value="desconocido">No estoy seguro</option>
+                    <option value="primaria">Primaria</option>
+                    <option value="secundaria">Secundaria</option>
+                    <option value="bachillerato">Preparatoria</option>
+                    <option value="tecnica">Carrera Técnica</option>
+                    <option value="licenciatura">Licenciatura</option>
+                    <option value="posgrado">Posgrado</option>
+                  </select> <br/>
                 Teléfono de contacto: <input name="telefonoMadre" type="text"/> <br/>
             </p>
         </form>
@@ -111,25 +130,26 @@
         <form id="frm5">
           <h2>Datos de Familia</h2>
             <p>
-                <h3>Estado Civil de tus padres:</h3>
-                <input name="estadoCivil" value="casados" type="radio">Casados<br>
-                <input name="estadoCivil" value="divorciados" type="radio">Divorciados<br>
-                <input name="estadoCivil" value="separados" type="radio">Separados<br>
-                <input name="estadoCivil" value="unionLibre" type="radio">Unión libre<br>
-                <input name="estadoCivil" value="viudoa" type="radio">Viudo (a)<br>
-                <input name="estadoCivil" value="volvioAJuntar" type="radio">Se volvió a juntar<br>
-                <input name="estadoCivil" value="volvioACasar" type="radio">Se volvió a casar<br>
+                <h3>Estado Civil de tus padres:</h3> <!--solo el primero necesita ser required-->
+                <input class = "required" name="estadoCivil" id="civilCasados" type="checkbox"/>Casados<br>
+                <input name="estadoCivil" id="civilDivorciados" type="checkbox"/>Divorciados<br>
+                <input name="estadoCivil" id="civilSeparados" type="checkbox"/>Separados<br>
+                <input name="estadoCivil" id="civilUnionL" type="checkbox"/>Unión libre<br>
+                <input name="estadoCivil" id="civilViudo" type="checkbox"/>Viudo (a)<br>
+                <input name="estadoCivil" id="civilJuntoDeNuevo" type="checkbox"/>Se volvió a juntar<br>
+                <input name="estadoCivil" id="civilVolvioACasar" type="checkbox"/>Se volvió a casar<br>
           
-                <h3>¿Con quién vives?</h3>
-                <input name="vivienda" value="papa" type="radio">Papá<br>
-                <input name="vivienda" value="mama" type="radio">Mamá<br>
-                <input name="vivienda" value="hermanoa" type="radio">Hermano (a)<br>
-                <input name="vivienda" value="abueloa" type="radio">Abuelo (a)<br>
-                <input name="vivienda" value="tioa" type="radio">Tío (a)<br>
-                <input name="vivienda" value="primoa" type="radio">Primo (a)<br>
-                <input name="vivienda" value="sobrinoa" type="radio">Sobrino (a)<br>    
-                <input name="vivienda" value="tutora" type="radio">Tutor (a)<br>
-                <input name="vivienda" value="" type="radio">Otros (a)<input type="text" name="otros" />
+                <h3>¿Con quién vives?</h3> <!--solo el primero necesita ser required-->
+                <input class = "required" name="vivienda" id="vivePapa" type="checkbox"/>Papá<br>
+                <input name="vivienda" id="viveMama" type="checkbox"/>Mamá<br>
+                <input name="vivienda" id="viveHermano" type="checkbox"/>Hermano (a)<br>
+                <input name="vivienda" id="viveAbuelo" type="checkbox"/>Abuelo (a)<br>
+                <input name="vivienda" id="viveTio" type="checkbox"/>Tío (a)<br>
+                <input name="vivienda" id="vivePrimo" type="checkbox"/>Primo (a)<br>
+                <input name="vivienda" id="viveSobrino" type="checkbox"/>Sobrino (a)<br>    
+                <input name="vivienda" id="viveTutor" type="checkbox"/>Tutor (a)<br>
+                Otro:<input name="vivienda" id= "viveOtro" type="text"/>
+                <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
             </p>
         </form>
       </div>

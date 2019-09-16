@@ -2,28 +2,80 @@ var currentTab = 0;
 showTab(currentTab);
 
 var data = {
+    //Datos Generales del Alumno
     'escuela': '',
     'municipio': '',
     'grado': '',
     'grupo': '',
     'numLista': '',
     'turno': '',
-    'sexo' : '',
+    //Nombre del alumno
     'aPaterno' : '',
     'aMaterno' : '',
     'nombres' : '',
     'edad' : '',
+    'sexo' : '',
     'lugarNacimiento' : '',
+
+    //Redes Sociales
     'facebook' : '',
     'instagram' : '',
     'correo' : '',
+
+    //Domicilio
     'calle' : '',
     'numCasa' : '',
     'entreCalles': '',
     'colonia' : '',
     'municipio' : '',
     'telefono' : '',
-    'celular' : ''
+    'celular' : '',
+
+    //Datos de Padre, Madre o Tutor
+    //Nombre completo del Padre
+    'aPaternoPadre': '',
+    'aMaternoPadre': '',
+    'nombresPadre': '',
+    'edadPadre' : '',
+    'ocupacionPadre': '',
+    'gradoPadre' : '',
+    'telefonoPadre' : '',
+
+    //Nombre completo de la Madre
+    'aPaternoMadre' : '',
+    'aMaternoMadre' : '',
+    'nombresMadre' : '',
+    'edadMadre' : '',
+    'ocupacionMadre' : '',
+    'gradoMadre' : '',
+    'telefonoMadre' : '',
+
+    //Datos de Familia
+    //Estado Civil de Tus Padres
+    'civilCasados' : '',
+    'civilDivorciados' : '',
+    'civilSeparados' : '',
+    'civilUnionL' : '',
+    'civilViudo' : '',
+    'civilJuntoDeNuevo' : '',
+    'civilVolvioACasar' : '',
+
+    //¿Con quien vives?
+    'vivePapa' : '',
+    'viveMama' : '',
+    'viveHermano' : '',
+    'viveAbuelo' : '',
+    'viveTio' : '',
+    'vivePrimo' : '',
+    'viveSobrino' : '',
+    'viveTutor' : '',
+    'viveOtro' : '',
+    
+    //Contacto Emergencia
+    'nombreContacto' : '',
+    'relacionContacto' : '',
+    'telefonoContacto' : ''
+
 };
    
 function download(data, filename, type) {
@@ -62,7 +114,16 @@ function getRadioVal(form, name) {
 }
 
 function getCheckBoxVal(form,name){
+    var atLeastOne = false;
+    var checkboxes = form[name];
 
+    for (var i=0, len=checkboxes.length; i<len; i++) {
+        if ( checkboxes[i].checked ) { 
+            data[checkboxes[i].id] = 'SI';
+            atLeastOne = true;
+        }
+    }
+    return atLeastOne;
 }
 
 function dumpInfoByForm(form){
@@ -70,7 +131,7 @@ function dumpInfoByForm(form){
         var value;
         if(form.elements[i].type == "radio"){
             value = getRadioVal(form, form.elements[i].name);
-            if(form.elements[i].className=='required' && value===''){
+            if(form.elements[i].className=='required' && value===undefined){ 
                 alert("Completa todos los campos");
                 return false;
             }
@@ -78,7 +139,13 @@ function dumpInfoByForm(form){
         }
 
         else if(form.elements[i].type == "checkbox"){
-            
+            var atLeastOne = getCheckBoxVal(form, form.elements[i].name);
+            if(form.elements[i].className == 'required' && atLeastOne == false){
+                alert("Elegir al menos una opción");
+                return false;
+            }
+            i += form.elements[form.elements[i].name].length-1;
+            continue;
         }
 
         else{
