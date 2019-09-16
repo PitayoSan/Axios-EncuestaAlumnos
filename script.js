@@ -16,7 +16,8 @@ var data = {
     'nombres' : '',
     'edad' : '',
     'sexo' : '',
-    'lugarNacimiento' : '',
+    'asistidoAcompPersonal': '',
+    'numAcompPersonal': '',
 
     //Redes Sociales
     'facebook' : '',
