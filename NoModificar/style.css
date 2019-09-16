@@ -1,0 +1,19 @@
+.titulo{
+    background-color: rgb(0, 80, 146);
+    color: white;
+    text-align: center;
+    width: 100%;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.tab {
+    display: none;
+}
+
+form  { display: table;      }
+p     { display: table-row;  }
+label { display: table-cell; }
+input { display: table-cell; }

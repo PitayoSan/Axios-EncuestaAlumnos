@@ -1,0 +1,215 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="NoModificar/style.css">
+    <link rel="stylesheet" href="NoModificar/css/bootstrap.min.css">
+    <!--<script src="script.js"></script>-->
+  </head>
+  <body onload="loadForms()">
+      <div class="tab">
+          <div class="container text-center">
+            <img src="NoModificar/img/logo.png" alt="Logo Axios"/>
+          </div>
+      <h1 class="titulo py-3"> Ficha de Registro del Programa AXIOS (Misión Mujer A.C.) </h1>
+      </br>
+      <div class="container" style="text-align: justify;">
+        <span>
+          Estimado alumno(a), te pedimos leas detenidamente la siguiente información
+          y si estás de acuerdo con lo que se te solicita, nos proporciones los datos. 
+          Es importante que sepas que éstos se encontrarán sujetos y protegidos
+          en los términos y condiciones del Aviso de Privacidad de Misión Mujer, A.C.,
+          al que puedes acceder en la página electrónica www.axios.org.mx; si tienes alguna
+          duda sobre lo que se te solicita, por favor háznoslo saber...¡Gracias!
+        </span>
+      </div>
+      <form id="frm0"></form>
+    </div>
+
+    <div class="container">
+      <div class="tab">
+        <form id="frm1">
+          <h2>Tus datos</h2> 
+          <p>
+              Municipio: <select class="required" id="municipioEscuela" name="municipioEscuela" onchange="setSchools()" type="select"> </select> <br/>
+            Nombre de tu escuela: <select class="required" id="escuela" name="escuela" type="select"> </select> <br/>
+            Grado: <select class="required" name="grado">
+              <option value="1">1ro</option>
+              <option value="2">2do</option>
+              <option value="3">3ro</option>
+            </select>
+            <br/>
+            Grupo: <select class="required" name="grupo">
+              <option value="A">A</option>
+              <option value="B">B</option>
+              <option value="C">C</option>
+              <option value="D">D</option>
+              <option value="E">E</option>
+              <option value="F">F</option>
+            </select>
+            <br/>
+            Número de Lista:  <select class="required" id="numLista" name="numLista"> </select> <br/>
+
+            Turno: <input class="required" name="turno" value ="M" type="radio">Mañana</input>
+                  <input class="required" name="turno" value="V" type="radio">Tarde</input> </br>
+            </br>
+            <h3>Tu nombre</h3>
+            Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
+            Apellido Materno: <input class="required" name="aMaterno" type="text"/> <br/>
+            Nombres: <input class="required" name="nombres" type="text"/> <br/>
+            Edad: <select class="required" id="edad" name="edad"> </select> <br/>
+            Sexo: <input class="required" name="sexo" value ="H" type="radio">Hombre</input>
+                  <input class="required" name="sexo" value="M" type="radio">Mujer</input> </br>
+            ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal" onchange="showNumbSessions()" name="asistidoAcompPersonal"> 
+              <option value="no" >No</option>
+              <option value="si" >Sí</option>
+            </select> <br/>
+            <div style="visibility: hidden;" id="numSessions">
+                ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br/>
+            </div>
+          </p>
+        </form>
+      </div>
+
+      <div class= "tab">
+        <form id="frm2">
+          <h2>Tus redes sociales</h2>
+            <p>
+              Facebook: <input name="facebook" type="text"/> <br/>
+              Instagram: <input name="instagram" type="text"/> <br/>
+              Correo Electrónico: <input name="correo" type="text"/> <br/>
+            </p>
+        </form>
+      </div>
+
+      <div class="tab">
+        <form id="frm3">
+          <h2>Datos de tu casa</h2>
+          <p>
+            Calle: <input class="required" name="calle" type="text"/> <br/>
+            Número: <input class="required" name="numCasa" type="text"/> <br/>
+            ¿Entre qué calles está tu casa?: <input class="required" name="entreCalles" type="text"/> <br/>
+            Colonia: <input class="required" name="colonia" type="text"/> <br/>
+            Municipio: <input class="required" name="municipioCasa" type="text"/> <br/>
+            Teléfono de casa:
+            <input class="required" name="telefonoCasa" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
+            Celular del estudiante:
+            <input class="required" name="celular" type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> <br/>
+          </p>
+        </form> 
+      </div>
+      
+      <div class="tab">
+        <form id = "frm4">
+          <h2>Datos de tu papá, mamá o tutor</h2>
+          <h3>(En caso de ser Tutor, agrega el parentesco)</h3>
+            <p>
+                <h3>Nombre completo de tu papá o tutor</h3>
+                Apellido Paterno: <input name="aPaternoPadre" type="text"/> <br/>
+                Apellido Materno: <input name="aMaternoPadre" type="text"/> <br/>
+                Nombres: <input name="nombresPadre" type="text"/> <br/>
+                Edad: <input name="edadPadre" type="number"/> <br/>
+                ¿A qué se dedica?: <input name="ocupacionPadre" type="text"/> <br/>
+                ¿Hasta qué grado estudió?: 
+                <select name="gradoPadre">
+                  <option value="desconocido">No estoy seguro</option>
+                  <option value="primaria">Primaria</option>
+                  <option value="secundaria">Secundaria</option>
+                  <option value="bachillerato">Preparatoria</option>
+                  <option value="tecnica">Carrera Técnica</option>
+                  <option value="licenciatura">Licenciatura</option>
+                  <option value="posgrado">Posgrado</option>
+                </select> <br/>
+                ¿Completó su grado de estudio?: 
+                <input class="required" name="gradoPadreCompleto" value ="si" type="radio">Si</input>
+                <input class="required" name="gradoPadreCompleto" value="no" type="radio">No</input> </br>
+                Teléfono de contacto: <input name="telefonoPadre" type="telPadres"/> <br/>
+              
+                <h3>Nombre completo de tu mamá o tutor</h3>
+                Apellido Paterno: <input name="aPaternoMadre" type="text"/> <br/>
+                Apellido Materno: <input name="aMaternoMadre" type="text"/> <br/>
+                Nombres: <input name="nombresMadre" type="text"/> <br/>
+                Edad: <input name="edadMadre" type="number"/> <br/>
+                ¿A qué se dedica?: <input name="ocupacionMadre" type="text"/> <br/>
+                ¿Hasta qué grado estudió?: 
+                <select name="gradomadre">
+                    <option value="desconocido">No estoy seguro</option>
+                    <option value="primaria">Primaria</option>
+                    <option value="secundaria">Secundaria</option>
+                    <option value="bachillerato">Preparatoria</option>
+                    <option value="tecnica">Carrera Técnica</option>
+                    <option value="licenciatura">Licenciatura</option>
+                    <option value="posgrado">Posgrado</option>
+                  </select> <br/>
+                ¿Completó su grado de estudio?: 
+                <input class="required" name="gradoMadreCompleto" value ="si" type="radio">Si</input>
+                <input class="required" name="gradoMadreCompleto" value="no" type="radio">No</input> </br>
+                Teléfono de contacto: <input name="telefonoMadre" type="telPadres"/> <br/>
+            </p>
+        </form>
+      </div>  
+
+      <div class ="tab">
+        <form id="frm5">
+          <h2>Datos de tu familia</h2>
+            <p>
+                <h3>Estado Civil de tus padres:</h3> <!--solo el primero necesita ser required-->
+                <select name="estadoCivil">
+                  <option value="civilCasados">Casados</option>
+                  <option value="civilDivorciados">Divorciados</option>
+                  <option value="civilSeparados">Separados</option>
+                  <option value="civilUnionL">Unión libre</option>
+                  <option value="civilViudo">Viudo (a)</option>
+                  <option value="civilJuntoDeNuevo">Se volvió a juntar</option>
+                  <option value="civilVolvioACasar">Se volvió a casar</option>
+                </select></br>
+                <h3>Indica todas las personas con las que vives</h3> <!--solo el primero necesita ser required-->
+                <input class = "required" name="vivienda" id="vivePapa" type="checkbox"/>Papá<br>
+                <input name="vivienda" id="viveMama" type="checkbox"/>Mamá<br>
+                <input name="vivienda" id="viveHermano" type="checkbox"/>Hermano (a)<br>
+                <input name="vivienda" id="viveAbuelo" type="checkbox"/>Abuelo (a)<br>
+                <input name="vivienda" id="viveTio" type="checkbox"/>Tío (a)<br>
+                <input name="vivienda" id="vivePrimo" type="checkbox"/>Primo (a)<br>
+                <input name="vivienda" id="viveSobrino" type="checkbox"/>Sobrino (a)<br>    
+                <input name="vivienda" id="viveTutor" type="checkbox"/>Tutor (a)<br>
+                Otro:<input name="vivienda" id= "viveOtro" type="text"/>
+                <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
+            </p>
+        </form>
+      </div>
+      
+      <div class = "tab">
+        <form id="frm6">
+          <h3>¿A quién quisieras que contactemos si tuvieras algún problema?</h3>
+          <p>
+              Nombre Completo: <input class="required" name="nombreContacto" type="text"/> <br/>
+              ¿Qué es de ti?:
+              <select name="relacionContacto">
+                <option value="papa">Papá</option>
+                <option value="mama">Mamá</option>
+                <option value="hermano">Hermano (a)</option>
+                <option value="abuelo">Abuelo (a)</option>
+                <option value="tio">Tío (a)</option>
+                <option value="primo">Primo (a)</option>
+                <option value="sobrino">Sobrino (a)</option>
+                <option value="tutor">Tutor (a)</option>
+              </select> <br/>
+              Teléfono de contacto: <input class="required" name="telefonoContacto" type="text"/> <br/> 
+          </p>
+      </form>
+      </div>
+
+      <div style="overflow:auto;">
+        <div style="float:right;">
+          <button type="button" id="prevBtn" onclick="nextPrev(-1)">Anterior</button>
+          <button type="button" id="nextBtn" onclick="nextPrev(1)">Siguiente</button>
+        </div>
+      </div>
+
+      <!--<button onclick="sendAnswers(); return true">Enviar respuestas</button>-->
+    </div>
+  </body>
+  <script type="text/javascript" src="NoModificar/script.js"></script>
+</html>
