@@ -33,8 +33,8 @@
         <form id="frm1">
           <h2>Tus datos</h2> 
           <p>
-            Nombre de tu escuela: <input class="required" name="escuela" type="text"/> <br/>
-            Municipio: <select class="required" id="municipioEscuela" name="municipioEscuela" type="select"> </select> <br/>
+              Municipio: <select class="required" id="municipioEscuela" name="municipioEscuela" onchange="setSchools()" type="select"> </select> <br/>
+            Nombre de tu escuela: <select class="required" id="escuela" name="escuela" type="select"> </select> <br/>
             Grado: <select class="required" name="grado">
               <option value="1">1ro</option>
               <option value="2">2do</option>
