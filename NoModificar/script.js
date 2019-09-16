@@ -76,10 +76,100 @@ var data = {
     'telefonoContacto' : ''
 
 };
+
+var municipios = [
+        {
+            clave: "SJL",
+            name: "San Juan de los Lagos",
+            escuelas: [
+                {
+                    clave: "25",
+                    name: "General Foránea #25"
+                    
+                },
+                {
+                    clave: "48",
+                    name: "#48"
+                },
+                {
+                    clave: "122",
+                    name: "#122 Francisco Montes de Oca"
+
+                }
+            ]
+        }, 
+        {
+            clave: "SMA",
+            name: "San Miguel el Alto",
+            escuelas: [
+                {
+                    clave: "25",
+                    name: "#25"
+                    
+                },
+                {
+                    clave: "77",
+                    name: "General Foránea #77"
+                },
+            ]
+        },
+        {
+            clave: "ZAP",
+            name: "Zapopan",
+            escuelas: [
+                {
+                    clave: "5",
+                    name: "Mixta No. 5 Lic Juan Manuel Ruvalcaba de la Mora"
+                    
+                },
+                {
+                    clave: "59",
+                    name: "General #59 Francisco Márquez"
+                },
+                {
+                    clave: "67",
+                    name: "General #67 Juan José Arreola"
+                    
+                },
+                {
+                    clave: "136",
+                    name: "General #136 Alma Rosa Padilla Rodriguez"
+                },
+            ]
+        },
+    ]
+
 function sanitize(str){
     var ans = str.normalize("NFD").replace(/[\u0300-\u036f]^([a-zA-Z0-9\s]+)/g, "")
     ans = ans.replace(/[^0-9a-z\s]/gi, '')
     return ans.toUpperCase();
+}
+
+function showNumbSessions(){
+    if(document.getElementById("numSessions").style.visibility=="hidden"){
+        document.getElementById("numSessions").style.visibility="visible"   
+    } else document.getElementById("numSessions").style.visibility="hidden";
+}
+
+function setSchools(){
+    var selectMun = document.getElementById("municipioEscuela");
+    var mun = selectMun.options[selectMun.selectedIndex].value;
+    var filteredMunicipios = municipios.filter(function(x){
+        return x.clave == mun;
+    })
+    schools = filteredMunicipios[0].escuelas;
+    var select = document.getElementById("escuela");
+    for(var i=select.options.length-1; i>=0; i--){
+        select.options.remove(i);
+    }
+    select.options = null;
+    for(var i=0; i<schools.length; i++){
+        var option = document.createElement("OPTION");
+        option.text=schools[i].name;
+        option.value = schools[i].clave;
+        select.options.add(option);
+    }
+
 }
 
 var municipiosEscuela = [['SJL', 'San Juan de los Lagos'], ['SMA', 'San Miguel el Alto'], ['ZAP', 'Zapopan']]
@@ -87,16 +177,28 @@ var municipiosEscuela = [['SJL', 'San Juan de los Lagos'], ['SMA', 'San Miguel e
 
 
 function loadForms(){
-    for(var i=0; i<municipiosEscuela.length; i++){
+    for(var i=0; i<municipios.length; i++){
         var select = document.getElementById("municipioEscuela");
         var option = document.createElement("OPTION");
-        option.text=municipiosEscuela[i][1];
-        console.log(option.text)
-        option.value=municipiosEscuela[i][0];
-        console.log(option.value)
+        option.text=municipios[i].name;
+        option.value = municipios[i].clave;
         select.options.add(option);
-        
     }
+    var selectMun = document.getElementById("municipioEscuela");
+    var mun = selectMun.options[selectMun.selectedIndex].value;
+    var filteredMunicipios = municipios.filter(function(x){
+        return x.clave == mun;
+    })
+    schools = filteredMunicipios[0].escuelas;
+    //console.log('schools', schools);
+    for(var i=0; i<schools.length; i++){
+        var select = document.getElementById("escuela");
+        var option = document.createElement("OPTION");
+        option.text=schools[i].name;
+        option.value = schools[i].clave;
+        select.options.add(option);
+    }
+
     for(var i=1; i<=40; i++){
         var select = document.getElementById("numLista");
         var option = document.createElement("OPTION");
@@ -104,14 +206,28 @@ function loadForms(){
         option.value=i;
         select.options.add(option);
     }
-    for(var i=10; i<=20; i++){
+    for(var i=1; i<=20; i++){
         var select = document.getElementById("edad");
         var option = document.createElement("OPTION");
         option.text=i;
         option.value=i;
         select.options.add(option);
     }
-    for(var i=0; i<=10; i++){
+    for(var i=1; i<=100; i++){
+        var select = document.getElementById("edadPadre");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
+    for(var i=1; i<=100; i++){
+        var select = document.getElementById("edadMadre");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
+    for(var i=1; i<=10; i++){
         var select = document.getElementById("numAcompPersonal");
         var option = document.createElement("OPTION");
         option.text=i;
@@ -170,10 +286,11 @@ function getCheckBoxVal(form,name){
 
 function dumpInfoByForm(form){
     for (var i = 0; i < form.length ;i++) {
+        var specialText =false;
         var value;
         if(form.elements[i].type == "radio"){
             value = getRadioVal(form, form.elements[i].name);
-            if(form.elements[i].className=='required form-check-input' && value===undefined){ 
+            if(form.elements[i].className=='required' && value===undefined){ 
                 alert("Completa todos los campos");
                 return false;
             }
@@ -192,17 +309,25 @@ function dumpInfoByForm(form){
         else if(form.elements[i].type == "select"){
             var e = form.elements[i];
             data[e.name] = e.options[e.selectedIndex].value;
-            console.log(e, e.options[e.selectedIndex].value)
+            //console.log(e, e.options[e.selectedIndex].value)
 
         }else{
-            value = form.elements[i].value;
-            if(form.elements[i].className=='required form-control' && value===''){
+            x = form.elements[i];
+            if(x.className=="specialText"){
+                specialText = true;
+            }
+            value = x.value;
+            if(form.elements[i].className=='required' && value===''){
                 alert("Completa todos los campos");
                 return false;
             }
         }
+        if(specialText){
+            data[form.elements[i].name] = value.replace(/,/g, '');
+        } else {
+            data[form.elements[i].name] = sanitize(value);
+        }
 
-        data[form.elements[i].name] = sanitize(value);
     }
 
     return true;
@@ -212,10 +337,10 @@ function sendAnswers(){
     var today = new Date();
     var year = today.getFullYear();
     var minutes = today.getMinutes();
-    var claveAlumno= '122'+data['turno']+'SJL'+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
+    var claveAlumno= data['escuela']+data['turno']+data['municipioEscuela']+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
     data['claveAlumno'] = claveAlumno;
     const keys = Object.keys(data);
-    console.log(keys.length);
+    //console.log(keys.length);
     var answers = new Array(keys.length);
     for (var i = 0; i < answers.length; i++) {
         answers[i] = new Array(2);
@@ -234,7 +359,7 @@ function sendAnswers(){
     }
     csv+="\r\n";
     download(csv, 'AXIOS-'+claveAlumno+'.csv', 'data:text/csv;charset=urf-8');
-    console.log(csv);
+    //console.log(csv);
     document.location.reload(true);
 }
       
@@ -261,7 +386,7 @@ function showTab(n){
 }
 
 function nextPrev(n) {
-    console.log(data);
+    //console.log(data);
     var x = document.getElementsByClassName("tab");
     if (n == 1 && !validateForm()) return false;
 
