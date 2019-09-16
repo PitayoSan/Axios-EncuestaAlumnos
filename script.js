@@ -1,3 +1,6 @@
+var currentTab = 0;
+showTab(currentTab);
+
 var data = {
     'escuela': '',
     'municipio': '',
@@ -40,13 +43,14 @@ function download(data, filename, type) {
         }, 0); 
     }
 }
+
 function checkAnswers(){
 
 }
 
 function getRadioVal(form, name) {
     var val;
-    var radios = form.elements[name];
+    var radios = form[name];
     
     for (var i=0, len=radios.length; i<len; i++) {
         if ( radios[i].checked ) { 
@@ -62,7 +66,7 @@ function getCheckBoxVal(form,name){
 }
 
 function dumpInfoByForm(form){
-    for (i = 0; i < form.length ;i++) {
+    for (var i = 0; i < form.length ;i++) {
         var value;
         if(form.elements[i].type == "radio"){
             value = getRadioVal(form, form.elements[i].name);
@@ -85,19 +89,14 @@ function dumpInfoByForm(form){
             }
         }
 
-        data[form.elements[i].name] += value;
+        data[form.elements[i].name] = value;
     }
+
+    return true;
 }
 
-
-
 function sendAnswers(){
-    var frm1 = document.getElementById("frm1");
-    
-    if(dumpInfoByForm(document.getElementById("frm1")) == false) return;
-    if(dumpInfoByForm(document.getElementById("frm2")) == false) return;
-    if(dumpInfoByForm(document.getElementById("frm3")) == false) return;
-    
+
     const keys = Object.keys(data);
     console.log(keys.length);
     var answers = new Array(keys.length);
@@ -119,5 +118,52 @@ function sendAnswers(){
     csv+="\r\n";
     download(csv, 'respuestas.csv', 'data:text/csv;charset=urf-8');
     console.log(csv);
+    document.location.reload(true);
 }
       
+function showTab(n){
+    var x = document.getElementsByClassName("tab");
+    x[n].style.display = "block";
+    
+    if (n == 0) {
+      document.getElementById("prevBtn").style.display = "none";
+    } else {
+      document.getElementById("prevBtn").style.display = "inline";
+    }
+    if (n == (x.length - 1)) {
+      document.getElementById("nextBtn").innerHTML = "Enviar Respuestas";
+    } else {
+      document.getElementById("nextBtn").innerHTML = "Siguiente";
+    }
+    //... and run a function that will display the correct step indicator:
+    //fixStepIndicator(n)
+
+}
+
+function nextPrev(n) {
+    console.log(data);
+    var x = document.getElementsByClassName("tab");
+    if (n == 1 && !validateForm()) return false;
+
+    x[currentTab].style.display = "none";
+    currentTab = currentTab + n;
+    if (currentTab >= x.length) {
+    //document.getElementById("frm1").submit();
+    sendAnswers();
+    return false;
+    }
+    showTab(currentTab);
+}
+
+function fixStepIndicator(n) {
+    var i, x = document.getElementsByClassName("step");
+    for (i = 0; i < x.length; i++) {
+    x[i].className = x[i].className.replace(" active", "");
+    }
+    x[n].className += " active";
+}
+
+function validateForm() {
+    var x = document.getElementsByClassName("tab");
+    return dumpInfoByForm(x[currentTab].getElementsByTagName("form")[0]);
+  }
