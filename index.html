@@ -31,9 +31,9 @@
     <div class="container">
       <div class="tab">
         <form id="frm1">
-          <h2>Datos Generales del Alumno</h2> 
+          <h2>Tus datos</h2> 
           <p>
-            Nombre de la escuela: <input class="required" name="escuela" type="text"/> <br/>
+            Nombre de tu escuela: <input class="required" name="escuela" type="text"/> <br/>
             Municipio: <input class="required" name="municipio" type="text"/> <br/>
             Grado: <input class="required" name="grado" type="number" min="1" max="3" step="1" value="1" /> <br/>
             Grupo: <input class="required" name="grupo" type="text"/> <br/>
@@ -41,21 +41,20 @@
             Turno: <input class="required" name="turno" value ="matutino" type="radio">Mañana</input>
                   <input class="required" name="turno" value="vespertino" type="radio">Tarde</input> </br>
             </br>
-            <h3>Nombre del alumno</h3>
+            <h3>Tu nombre</h3>
             Apellido Paterno: <input class="required" name="aPaterno" type="text"/> <br/>
             Apellido Materno: <input class="required" name="aMaterno" type="text"/> <br/>
             Nombres: <input class="required" name="nombres" type="text"/> <br/>
             Edad: <input class="required" name="edad" type="number" min="1" step="1"/> <br/>
             Sexo: <input class="required" name="sexo" value ="hombre" type="radio">Hombre</input>
                   <input class="required" name="sexo" value="mujer" type="radio">Mujer</input> </br>
-            Lugar de Nacimiento: <input class="required" name="lugarNacimiento" type="text"/> <br/>
           </p>
         </form>
       </div>
 
       <div class= "tab">
         <form id="frm2">
-          <h2>Redes Sociales</h2>
+          <h2>Tus redes sociales</h2>
             <p>
               Facebook: <input name="facebook" type="text"/> <br/>
               Instagram: <input name="instagram" type="text"/> <br/>
@@ -66,11 +65,11 @@
 
       <div class="tab">
         <form id="frm3">
-          <h2>Domicilio</h2>
+          <h2>Datos de tu casa</h2>
           <p>
             Calle: <input class="required" name="calle" type="text"/> <br/>
             Número: <input class="required" name="numCasa" type="text"/> <br/>
-            Entre Calles: <input class="required" name="entreCalles" type="text"/> <br/>
+            ¿Entre qué calles está tu casa?: <input class="required" name="entreCalles" type="text"/> <br/>
             Colonia: <input class="required" name="colonia" type="text"/> <br/>
             Municipio: <input class="required" name="municipio" type="text"/> <br/>
             Teléfono de casa:
@@ -83,16 +82,16 @@
       
       <div class="tab">
         <form id = "frm4">
-          <h2>Datos de Padre, Madre o Tutor</h2>
-          <h3>(En caso de ser Tutor, agregar el parentesco)</h3>
+          <h2>Datos de tu papá, mamá o tutor</h2>
+          <h3>(En caso de ser Tutor, agrega el parentesco)</h3>
             <p>
-                <h3>Nombre completo del Padre</h3>
+                <h3>Nombre completo de tu papá o tutor</h3>
                 Apellido Paterno: <input name="aPaternoPadre" type="text"/> <br/>
                 Apellido Materno: <input name="aMaternoPadre" type="text"/> <br/>
                 Nombres: <input name="nombresPadre" type="text"/> <br/>
                 Edad: <input name="edadPadre" type="text"/> <br/>
-                Ocupación: <input name="ocupacionPadre" type="text"/> <br/>
-                Hasta qué grado estudió: 
+                ¿A qué se dedica?: <input name="ocupacionPadre" type="text"/> <br/>
+                ¿Hasta qué grado estudió?: 
                 <select name="gradoPadre">
                   <option value="desconocido">No estoy seguro</option>
                   <option value="primaria">Primaria</option>
@@ -105,13 +104,13 @@
                 <!--<input name="gradoPadre" type="text"/> <br/>-->
                 Teléfono de contacto: <input name="telefonoPadre" type="text"/> <br/>
               
-                <h3>Nombre completo de la Madre</h3>
+                <h3>Nombre completo de tu mamá o tutor</h3>
                 Apellido Paterno: <input name="aPaternoMadre" type="text"/> <br/>
                 Apellido Materno: <input name="aMaternoMadre" type="text"/> <br/>
                 Nombres: <input name="nombresMadre" type="text"/> <br/>
                 Edad: <input name="edadMadre" type="text"/> <br/>
-                Ocupación: <input name="ocupacionMadre" type="text"/> <br/>
-                Hasta qué grado estudió:
+                ¿A qué se dedica?: <input name="ocupacionMadre" type="text"/> <br/>
+                ¿Hasta qué grado estudió?: 
                 <select name="gradomadre">
                     <option value="desconocido">No estoy seguro</option>
                     <option value="primaria">Primaria</option>
@@ -128,7 +127,7 @@
 
       <div class ="tab">
         <form id="frm5">
-          <h2>Datos de Familia</h2>
+          <h2>Datos de tu familia</h2>
             <p>
                 <h3>Estado Civil de tus padres:</h3> <!--solo el primero necesita ser required-->
                 <input class = "required" name="estadoCivil" id="civilCasados" type="checkbox"/>Casados<br>
