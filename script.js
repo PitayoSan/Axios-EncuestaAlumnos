@@ -173,7 +173,7 @@ function dumpInfoByForm(form){
         var value;
         if(form.elements[i].type == "radio"){
             value = getRadioVal(form, form.elements[i].name);
-            if(form.elements[i].className=='required' && value===undefined){ 
+            if(form.elements[i].className=='required form-check-input' && value===undefined){ 
                 alert("Completa todos los campos");
                 return false;
             }
@@ -196,7 +196,7 @@ function dumpInfoByForm(form){
 
         }else{
             value = form.elements[i].value;
-            if(form.elements[i].className=='required' && value===''){
+            if(form.elements[i].className=='required form-control' && value===''){
                 alert("Completa todos los campos");
                 return false;
             }
