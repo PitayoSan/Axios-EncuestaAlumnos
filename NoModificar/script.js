@@ -206,8 +206,22 @@ function loadForms(){
         option.value=i;
         select.options.add(option);
     }
-    for(var i=10; i<=20; i++){
+    for(var i=1; i<=20; i++){
         var select = document.getElementById("edad");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
+    for(var i=1; i<=100; i++){
+        var select = document.getElementById("edadPadre");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
+    for(var i=1; i<=100; i++){
+        var select = document.getElementById("edadMadre");
         var option = document.createElement("OPTION");
         option.text=i;
         option.value=i;
@@ -272,6 +286,7 @@ function getCheckBoxVal(form,name){
 
 function dumpInfoByForm(form){
     for (var i = 0; i < form.length ;i++) {
+        var specialText =false;
         var value;
         if(form.elements[i].type == "radio"){
             value = getRadioVal(form, form.elements[i].name);
@@ -297,14 +312,22 @@ function dumpInfoByForm(form){
             //console.log(e, e.options[e.selectedIndex].value)
 
         }else{
-            value = form.elements[i].value;
+            x = form.elements[i];
+            if(x.className=="specialText"){
+                specialText = true;
+            }
+            value = x.value;
             if(form.elements[i].className=='required' && value===''){
                 alert("Completa todos los campos");
                 return false;
             }
         }
+        if(specialText){
+            data[form.elements[i].name] = value.replace(/,/g, '');
+        } else {
+            data[form.elements[i].name] = sanitize(value);
+        }
 
-        data[form.elements[i].name] = sanitize(value);
     }
 
     return true;
