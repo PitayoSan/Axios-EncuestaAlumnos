@@ -177,18 +177,22 @@ var municipiosEscuela = [['SJL', 'San Juan de los Lagos'], ['SMA', 'San Miguel e
 
 
 function loadForms(){
+    /*
     for(var i=0; i<municipios.length; i++){
+        
         var select = document.getElementById("municipioEscuela");
         var option = document.createElement("OPTION");
         option.text=municipios[i].name;
         option.value = municipios[i].clave;
         select.options.add(option);
+        
     }
     var selectMun = document.getElementById("municipioEscuela");
     var mun = selectMun.options[selectMun.selectedIndex].value;
     var filteredMunicipios = municipios.filter(function(x){
         return x.clave == mun;
     })
+    
     schools = filteredMunicipios[0].escuelas;
     //console.log('schools', schools);
     for(var i=0; i<schools.length; i++){
@@ -198,7 +202,7 @@ function loadForms(){
         option.value = schools[i].clave;
         select.options.add(option);
     }
-
+*/
     for(var i=1; i<=40; i++){
         var select = document.getElementById("numLista");
         var option = document.createElement("OPTION");
