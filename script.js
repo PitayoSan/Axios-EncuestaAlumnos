@@ -308,7 +308,7 @@ function sendAnswers(){
     var today = new Date();
     var year = today.getFullYear();
     var minutes = today.getMinutes();
-    var claveAlumno= '122'+data['turno']+data['municipioEscuela']+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
+    var claveAlumno= data['escuela']+data['turno']+data['municipioEscuela']+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
     data['claveAlumno'] = claveAlumno;
     const keys = Object.keys(data);
     //console.log(keys.length);
