@@ -114,6 +114,13 @@ function loadForms(){
         option.value=i;
         select.options.add(option);
     }
+    for(var i=0; i<=10; i++){
+        var select = document.getElementById("numAcompPersonal");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
 }
    
 function download(data, filename, type) {
