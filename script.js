@@ -3,6 +3,7 @@ showTab(currentTab);
 
 var data = {
     //Datos Generales del Alumno
+    'claveAlumno': '',
     'escuela': '',
     'municipio': '',
     'grado': '',
@@ -168,7 +169,10 @@ function dumpInfoByForm(form){
 }
 
 function sendAnswers(){
-
+    var today = new Date();
+    var year = today.getFullYear();
+    var claveAlumno= '122'+data['turno']+'SJL'+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year;
+    data['claveAlumno'] = claveAlumno;
     const keys = Object.keys(data);
     console.log(keys.length);
     var answers = new Array(keys.length);
@@ -188,7 +192,7 @@ function sendAnswers(){
         csv+=', ';
     }
     csv+="\r\n";
-    download(csv, 'respuestas.csv', 'data:text/csv;charset=urf-8');
+    download(csv, 'AXIOS-'+claveAlumno+'.csv', 'data:text/csv;charset=urf-8');
     console.log(csv);
     document.location.reload(true);
 }
