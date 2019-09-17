@@ -38,9 +38,9 @@
           <p>
             Nombre de tu escuela:
             <select class="form-control-sm" name="escuela">
-              <option value="tecnica25">Técnica #25</option>
-              <option value="juanDeDios">Foránea #77 "Juan de Dios Robledo</option>
-              <option value="foranea25">General Foránea #25</option>
+              <option value="tecnica25">Técnica #25 "ETA"</option>
+              <option value="juanDeDios">Foránea #77 "Juan de Dios Robledo"</option>
+              <option value="foranea25">General Foránea #25 "Benigno Romo"</option>
               <option value="tecnica48">Técnica #48</option>
               <option value="122MontesDeOca">#122 "Francisco Montes de Oca"</option>
               <option value="mixta5">Mixta #5 "Lic. Juan Manuel Ruvalcaba De la Mora"</option>
@@ -120,10 +120,10 @@
           </div>
           ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal"
             name="asistidoAcompPersonal">
-            <option value="no">No</option>
-            <option value="si">Sí</option>
+            <option value="no" onclick="toggleEnable()">No</option>
+            <option value="si" onclick="toggleEnable()">Sí</option>
           </select> <br />
-          ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br />
+          ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal" disabled> </select> <br />
           </p>
         </div>
       </form>
@@ -150,7 +150,7 @@
             <div class="form-row">
               <div class="form-group col-md-12">
                 <label>Correo Electrónico</label>
-                <input name="correo" class="specialText form-control" type="email">
+                <input name="correo" class="specialText form-control" type="email" placeholder="email@ejemplo.com">
               </div>
             </div>
           </p>
@@ -197,7 +197,7 @@
                 <label>Teléfono de casa:</label>
               </div>
               <div class="form-group col-md-7">
-                <input class="required form-control" name="telefonoCasa" type="tel" name="phone"
+                <input class="required form-control" name="telefonoCasa" type="tel" name="phone" placeholder="###-###-####"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </div>
             </div>
@@ -206,7 +206,7 @@
                 <label>Celular del estudiante:</label>
               </div>
               <div class="form-group col-md-7">
-                <input class="required form-control" name="celular" type="tel" name="phone"
+                <input class="required form-control" name="celular" type="tel" name="phone" placeholder="###-###-####"
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
               </div>
             </div>
@@ -284,7 +284,7 @@
                 <label>Teléfono de contacto:</label>
               </div>
               <div class="form-group col-md-7">
-                <input name="telefonoPadre" type="telPadres" class="form-control" />
+                <input name="telefonoPadre" type="telPadres" class="form-control" placeholder="###-###-####" />
               </div>
             </div>
 
@@ -351,7 +351,7 @@
                 <label>Teléfono de contacto:</label>
               </div>
               <div class="form-group col-md-7">
-                <input name="telefonoMadre" type="telPadres" class="form-control" />
+                <input name="telefonoMadre" type="telPadres" class="form-control" placeholder="###-###-####" />
               </div>
             </div>
           </p>
@@ -377,13 +377,15 @@
           <!--solo el primero necesita ser required-->
           <input class="required" name="vivienda" id="vivePapa" type="checkbox" />Papá<br>
           <input name="vivienda" id="viveMama" type="checkbox" />Mamá<br>
-          <input name="vivienda" id="viveHermano" type="checkbox" />Hermano (a)<br>
+          <input name="vivienda" id="viveHermano" type="checkbox"" />Hermano (a)<br>
           <input name="vivienda" id="viveAbuelo" type="checkbox" />Abuelo (a)<br>
           <input name="vivienda" id="viveTio" type="checkbox" />Tío (a)<br>
           <input name="vivienda" id="vivePrimo" type="checkbox" />Primo (a)<br>
           <input name="vivienda" id="viveSobrino" type="checkbox" />Sobrino (a)<br>
           <input name="vivienda" id="viveTutor" type="checkbox" />Tutor (a)<br>
-          Otro:<input name="viveOtro" id="viveOtro" type="text" />
+          Otro:<input name="viveOtro" id="viveOtro" type="text" /><br>
+          <label>Con cuantos hermanos vives?:</label>
+              <select class="required form-control-sm" id="numeroHermanos" name="numeroHermanos"> </select>
           <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
         </p>
       </form>

@@ -76,6 +76,7 @@ var data = {
     'viveSobrino' : '',
     'viveTutor' : '',
     'viveOtro' : '',
+    'numeroHermanos': '',
     
     //Contacto Emergencia
     'nombreContacto' : '',
@@ -212,6 +213,14 @@ function loadForms(){
 */
     for(var i=1; i<=40; i++){
         var select = document.getElementById("numLista");
+        var option = document.createElement("OPTION");
+        option.text=i;
+        option.value=i;
+        select.options.add(option);
+    }
+
+    for(var i=0; i<=10; i++){
+        var select = document.getElementById("numeroHermanos");
         var option = document.createElement("OPTION");
         option.text=i;
         option.value=i;
@@ -422,4 +431,44 @@ function fixStepIndicator(n) {
 function validateForm() {
     var x = document.getElementsByClassName("tab");
     return dumpInfoByForm(x[currentTab].getElementsByTagName("form")[0]);
+}
+
+// funcion que habilita el numero de sesiones de acompañamiento personal en caso de responder sí
+function toggleEnable()
+{
+    var disable = document.getElementById('numAcompPersonal');
+    if (disable.hasAttribute("disabled"))
+        disable.removeAttribute("disabled");
+    else
+        disable.setAttribute("disabled", "");
+}
+
+// funcion que agrega el form de cuantos hermanos tiene en caso de haber seleccionado la casilla hermano(a)
+function cuantosHermanos()
+{
+    var container = document.getElementById('container');
+    var checkHermanos = document.getElementById('viveHermano');
+     // form
+    var formNode = document.createElement('input');
+    formNode.classList.add('required');
+    formNode.setAttribute('id', 'numeroHermanos');
+    formNode.setAttribute('name', 'vivienda');
+    formNode.setAttribute('type', 'text');
+    formNode.setAttribute('placeholder', 'Escribe numero');
+    // header
+    var headerNode = document.createElement('h4');
+    var textNode = document.createTextNode("Cuantos hermanos(as) vives?");
+    headerNode.appendChild(textNode);
+    
+    if (checkHermanos.checked)
+    {
+        container.appendChild(headerNode);
+        container.appendChild(formNode);
+    }
+    else 
+    {
+        container.removeChild(headerNode);
+        container.removeChild(formNode);
+    }
+
 }
