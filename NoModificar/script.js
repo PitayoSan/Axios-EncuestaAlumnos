@@ -353,13 +353,13 @@ function dumpInfoByForm(form){
     if(form.id != "frm4")
         return true;
 
-    if(form.element[telefonoPadre].value == null && form.element[telefonoMadre].value == null){
+    if(form.elements["telefonoPadre"].value.replace(/ /g, '') == '' && form.elements["telefonoMadre"].value.replace(/ /g, '') == ""){
         alert("Ingresa el teléfono de al menos uno de tus padres.");
         return false;
     }
 
     return true;
-    
+}
 
 function sendAnswers(){
     var today = new Date();
