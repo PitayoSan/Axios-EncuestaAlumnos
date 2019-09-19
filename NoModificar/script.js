@@ -81,71 +81,131 @@ var data = {
     //Contacto Emergencia
     'nombreContacto' : '',
     'relacionContacto' : '',
-    'telefonoContacto' : ''
+    'telefonoContacto' : '',
+    //Datos de facilitador:
+    'nombreFacilitador': ''
 
 };
 
-var municipios = [
-        {
-            clave: "SJL",
-            name: "San Juan de los Lagos",
-            escuelas: [
-                {
-                    clave: "25",
-                    name: "General Foránea #25"
-                    
-                },
-                {
-                    clave: "48",
-                    name: "#48"
-                },
-                {
-                    clave: "122",
-                    name: "#122 Francisco Montes de Oca"
-
-                }
-            ]
-        }, 
-        {
-            clave: "SMA",
-            name: "San Miguel el Alto",
-            escuelas: [
-                {
-                    clave: "25",
-                    name: "#25"
-                    
-                },
-                {
-                    clave: "77",
-                    name: "General Foránea #77"
-                },
-            ]
+var escuelas = [
+    {
+        clave: 'tecnica25',
+        name: 'Técnica #25 "ETA"',
+        municipio: { 
+            clave: 'SMA', 
+            name: 'San Miguel el Alto'
         },
-        {
-            clave: "ZAP",
-            name: "Zapopan",
-            escuelas: [
-                {
-                    clave: "5",
-                    name: "Mixta No. 5 Lic Juan Manuel Ruvalcaba de la Mora"
-                    
-                },
-                {
-                    clave: "59",
-                    name: "General #59 Francisco Márquez"
-                },
-                {
-                    clave: "67",
-                    name: "General #67 Juan José Arreola"
-                    
-                },
-                {
-                    clave: "136",
-                    name: "General #136 Alma Rosa Padilla Rodriguez"
-                },
-            ]
+        facilitador: {
+            matutino: 'Psic. Alma Jessica Gómez Martín',
+            vespertino: 'Psic. Sandra Nayelli Pérez García'
+        }
+        
+    },
+    {
+        clave: 'juanDeDios',
+        name: 'Foránea #77 "Juan de Dios Robledo"',
+        municipio: { 
+            clave: 'SMA', 
+            name: 'San Miguel el Alto'
         },
-    ]
+        facilitador: {
+            matutino: 'Irma Ramírez',
+            vespertino: ''
+        }
+        
+    },
+    {
+        clave: 'foranea25',
+        name: 'General Foránea #25 "Benigno Romo"',
+        municipio: { 
+            clave: 'SJL', 
+            name: 'San Juan de los Lagos'
+        },
+        facilitador: {
+            matutino: 'Psic. Magaly de León',
+            vespertino: 'Psic. Karol Jocelyn Solorzano'
+        }
+        
+    },
+    {
+        clave: 'tecnica48',
+        name: 'Técnica #48',
+        municipio: { 
+            clave: 'SJL', 
+            name: 'San Juan de los Lagos'
+        },
+        facilitador: {
+            matutino: 'Psic. Isela Guzmán',
+            vespertino: 'Psic. Juan Antonio Pérez Muñoz'
+        }
+        
+    },
+    {
+        clave: '122MontesDeOca',
+        name: '#122 "Francisco Montes de Oca"',
+        municipio: { 
+            clave: 'SJL', 
+            name: 'San Juan de los Lagos'
+        },
+        facilitador: {
+            matutino: '',
+            vespertino: ''
+        }
+        
+    },
+    {
+        clave: 'mixta5',
+        name: 'Mixta #5 "Lic. Juan Manuel Ruvalcaba De la Mora"',
+        municipio: { 
+            clave: 'ZAP', 
+            name: 'Zapopan'
+        },
+        facilitador: {
+            matutino: 'Psic. Juan Pablo Ramírez Durán',
+            vespertino: ''
+        }
+        
+    },
+    {
+        clave: 'general59',
+        name: 'General #59 "Francisco Marquez',
+        municipio: { 
+            clave: 'ZAP', 
+            name: 'Zapopan'
+        },
+        facilitador: {
+            matutino: 'Psic. Viridiana Gutiérrez Saínz',
+            vespertino: ''
+        }
+        
+    },
+    {
+        clave: 'general67',
+        name: 'General #67 "Juan José Arreola"',
+        municipio: { 
+            clave: 'ZAP', 
+            name: 'Zapopan'
+        },
+        facilitador: {
+            matutino: 'TS. Jonathan Ramírez Sánchez',
+            vespertino: ''
+        }
+        
+    },
+    {
+        clave: 'general136',
+        name: '',
+        municipio: { 
+            clave: 'ZAP', 
+            name: 'Zapopan'
+        },
+        facilitador: {
+            matutino: 'Psic. Mercedes Vaquero Padilla',
+            vespertino: ''
+        }
+        
+    },
+]
 
 function sanitize(str){
     var ans = str.normalize("NFD").replace(/[\u0300-\u036f]^([a-zA-Z0-9\s]+)/g, "")
@@ -159,58 +219,39 @@ function showNumbSessions(){
     } else document.getElementById("numSessions").style.visibility="hidden";
 }
 
-function setSchools(){
-    var selectMun = document.getElementById("municipioEscuela");
-    var mun = selectMun.options[selectMun.selectedIndex].value;
-    var filteredMunicipios = municipios.filter(function(x){
-        return x.clave == mun;
-    })
-    schools = filteredMunicipios[0].escuelas;
-    var select = document.getElementById("escuela");
-    for(var i=select.options.length-1; i>=0; i--){
-        select.options.remove(i);
-    }
-    select.options = null;
-    for(var i=0; i<schools.length; i++){
-        var option = document.createElement("OPTION");
-        option.text=schools[i].name;
-        option.value = schools[i].clave;
-        select.options.add(option);
-    }
+// function setSchools(){
+//     var selectMun = document.getElementById("municipioEscuela");
+//     var mun = selectMun.options[selectMun.selectedIndex].value;
+//     var filteredMunicipios = municipios.filter(function(x){
+//         return x.clave == mun;
+//     })
+//     schools = filteredMunicipios[0].escuelas;
+//     var select = document.getElementById("escuela");
+//     for(var i=select.options.length-1; i>=0; i--){
+//         select.options.remove(i);
+//     }
+//     select.options = null;
+//     for(var i=0; i<schools.length; i++){
+//         var option = document.createElement("OPTION");
+//         option.text=schools[i].name;
+//         option.value = schools[i].clave;
+//         select.options.add(option);
+//     }
+// }
 
-}
-
-var municipiosEscuela = [['SJL', 'San Juan de los Lagos'], ['SMA', 'San Miguel el Alto'], ['ZAP', 'Zapopan']]
+// var municipiosEscuela = [['SJL', 'San Juan de los Lagos'], ['SMA', 'San Miguel el Alto'], ['ZAP', 'Zapopan']]
 
 
 
 function loadForms(){
-    /*
-    for(var i=0; i<municipios.length; i++){
-        
-        var select = document.getElementById("municipioEscuela");
-        var option = document.createElement("OPTION");
-        option.text=municipios[i].name;
-        option.value = municipios[i].clave;
-        select.options.add(option);
-        
-    }
-    var selectMun = document.getElementById("municipioEscuela");
-    var mun = selectMun.options[selectMun.selectedIndex].value;
-    var filteredMunicipios = municipios.filter(function(x){
-        return x.clave == mun;
-    })
-    
-    schools = filteredMunicipios[0].escuelas;
-    //console.log('schools', schools);
-    for(var i=0; i<schools.length; i++){
+    for(var i=0; i<escuelas.length; i++){
         var select = document.getElementById("escuela");
         var option = document.createElement("OPTION");
-        option.text=schools[i].name;
-        option.value = schools[i].clave;
+        option.text=escuelas[i].name;
+        option.value=escuelas[i].clave;
         select.options.add(option);
     }
-*/
+    
     for(var i=1; i<=40; i++){
         var select = document.getElementById("numLista");
         var option = document.createElement("OPTION");
@@ -329,7 +370,6 @@ function dumpInfoByForm(form){
         else if(form.elements[i].type == "select"){
             var e = form.elements[i];
             data[e.name] = e.options[e.selectedIndex].value;
-            //console.log(e, e.options[e.selectedIndex].value)
 
         }else{
             x = form.elements[i];
@@ -367,6 +407,17 @@ function sendAnswers(){
     var minutes = today.getMinutes();
     var claveAlumno= data['escuela']+data['turno']+data['municipioEscuela']+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
     data['claveAlumno'] = claveAlumno;
+    const filteredEscuela = escuelas.filter(function(x){
+        return sanitize(x.clave)==data['escuela']
+    })
+    const escuela = filteredEscuela[0];
+    var facilitador;
+    if(data['turno']=='M'){
+        facilitador =escuela.facilitador.matutino;
+    } else if(data['turno']=='V'){
+        facilitador =escuela.facilitador.vespertino;
+    }
+    data['nombreFacilitador'] = facilitador;
     const keys = Object.keys(data);
     //console.log(keys.length);
     var answers = new Array(keys.length);
