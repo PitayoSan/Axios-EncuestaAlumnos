@@ -148,7 +148,7 @@ var escuelas = [
             name: 'San Juan de los Lagos'
         },
         facilitador: {
-            matutino: '',
+            matutino: 'Psic. Isela Guzmán',
             vespertino: ''
         }
         
@@ -405,19 +405,20 @@ function sendAnswers(){
     var today = new Date();
     var year = today.getFullYear();
     var minutes = today.getMinutes();
-    var claveAlumno= data['escuela']+data['turno']+data['municipioEscuela']+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
-    data['claveAlumno'] = claveAlumno;
     const filteredEscuela = escuelas.filter(function(x){
         return sanitize(x.clave)==data['escuela']
     })
     const escuela = filteredEscuela[0];
     var facilitador;
+    data['municipioEscuela']=escuela.municipio.clave;
     if(data['turno']=='M'){
         facilitador =escuela.facilitador.matutino;
     } else if(data['turno']=='V'){
         facilitador =escuela.facilitador.vespertino;
     }
     data['nombreFacilitador'] = facilitador;
+    var claveAlumno= data['escuela']+data['turno']+data['municipioEscuela']+data['grado']+data['grupo']+data['numLista']+data['sexo']+'-'+year+'-'+minutes;
+    data['claveAlumno'] = claveAlumno;
     const keys = Object.keys(data);
     //console.log(keys.length);
     var answers = new Array(keys.length);
