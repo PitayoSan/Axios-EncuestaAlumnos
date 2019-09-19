@@ -350,8 +350,16 @@ function dumpInfoByForm(form){
 
     }
 
+    if(form.id != "frm4")
+        return true;
+
+    if(form.element[telefonoPadre].value == null && form.element[telefonoMadre].value == null){
+        alert("Ingresa el teléfono de al menos uno de tus padres.");
+        return false;
+    }
+
     return true;
-}
+    
 
 function sendAnswers(){
     var today = new Date();
@@ -420,16 +428,17 @@ function nextPrev(n) {
     showTab(currentTab);
 }
 
-function fixStepIndicator(n) {
+/*function fixStepIndicator(n) {
     var i, x = document.getElementsByClassName("step");
     for (i = 0; i < x.length; i++) {
     x[i].className = x[i].className.replace(" active", "");
     }
     x[n].className += " active";
 }
-
+*/
 function validateForm() {
     var x = document.getElementsByClassName("tab");
+    //var currentForm = x[currentTab].getElementsByTagName("form")[0];
     return dumpInfoByForm(x[currentTab].getElementsByTagName("form")[0]);
 }
 
