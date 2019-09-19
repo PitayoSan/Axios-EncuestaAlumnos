@@ -120,10 +120,10 @@
           </div>
           ¿Has asistido a acompañamiento personalizado?: <select class="required" id="asistidoAcompPersonal"
             name="asistidoAcompPersonal">
-            <option value="no" onclick="toggleEnable()">No</option>
-            <option value="si" onclick="toggleEnable()">Sí</option>
+            <option value="no">No</option>
+            <option value="si">Sí</option>
           </select> <br />
-          ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal" disabled> </select> <br />
+          ¿Cuántas veces?: <select id="numAcompPersonal" name="numAcompPersonal"> </select> <br />
           </p>
         </div>
       </form>
@@ -372,21 +372,23 @@
           <input name="estadoCivil" id="civilViudo" type="checkbox" />Viudo (a)<br>
           <input name="estadoCivil" id="civilJuntoDeNuevo" type="checkbox" />Se volvió a juntar<br>
           <input name="estadoCivil" id="civilVolvioACasar" type="checkbox" />Se volvió a casar<br>
-          Otro:<input name="estadoCivil" id="civilOtro" type="text" />
+          <input name="estadoCivil" id="civilOtro" type="checkbox" />Otro:
+          <input name="civilOtro" id="civilOtroTxt" type="text" class="form-control"/><br>
           <h3>Indica todas las personas con las que vives</h3>
           <!--solo el primero necesita ser required-->
           <input class="required" name="vivienda" id="vivePapa" type="checkbox" />Papá<br>
           <input name="vivienda" id="viveMama" type="checkbox" />Mamá<br>
-          <input name="vivienda" id="viveHermano" type="checkbox"" />Hermano (a)<br>
+          <input name="vivienda" id="viveHermano" type="checkbox" />Hermano (a)<br>
           <input name="vivienda" id="viveAbuelo" type="checkbox" />Abuelo (a)<br>
           <input name="vivienda" id="viveTio" type="checkbox" />Tío (a)<br>
           <input name="vivienda" id="vivePrimo" type="checkbox" />Primo (a)<br>
           <input name="vivienda" id="viveSobrino" type="checkbox" />Sobrino (a)<br>
           <input name="vivienda" id="viveTutor" type="checkbox" />Tutor (a)<br>
-          Otro:<input name="viveOtro" id="viveOtro" type="text" /><br>
+          <input name="vivienda" id="viveOtro" type="checkbox" />Otro:
+          <input name="viveOtro" id="viveOtroTxt" type="text" /><br>
+          
           <label>Con cuantos hermanos vives?:</label>
-              <select class="required form-control-sm" id="numeroHermanos" name="numeroHermanos"> </select>
-          <!--<input name="viveOtro" value="" type="radio">Otros (a)<input type="text" name="otros" />-->
+          <select class="required form-control-sm" id="numeroHermanos" name="numeroHermanos"> </select>
         </p>
       </form>
     </div>
